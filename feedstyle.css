@@ -1,0 +1,125 @@
+    /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(8, 8, 8, 0.925), rgba(69, 52, 116, 0.37)), url(images/mail2.jpg) no-repeat center center/cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: linear-gradient(270deg, #645a8852, #886dac2a);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(10, 214, 204, 0.007);
+    
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+p {
+    text-align: center;
+    color: #fff;
+}
+
+/* Form styles */
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+input, textarea, select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+input[type="text"], input[type="email"], select {
+    width: 580px;
+    border: 2px solid #4c7aaf63;
+}
+
+textarea {
+    resize: vertical;
+    width: 580px;
+    border: 2px solid #4c7aaf63;
+}
+
+.button {
+    background-color: #4c7aaf;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 200px;
+    display: block;
+    margin: auto;
+}
+
+button:hover {
+    background-color: #45a049;
+    
+}
+.back-btn{
+    background-color: transparent;
+    color: white;
+    padding: 12px 20px;
+    border: 1px solid #4c7aaf;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100px;
+    margin-top: 20px;
+}
+.back-btn a{
+    text-decoration: none;
+     color: #fff;
+}
+.back-btn:hover{
+    background: linear-gradient(270deg, #645a8852, #886dac2a);
+    backdrop-filter: blur(10px);
+}
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 40px;
+        
+        
+    }
+    input[type="text"], input[type="email"], select{
+        width: 88%;
+        justify-content: center;
+    }
+    textarea{
+        width: 88%;
+        justify-content: center;
+    }
+    h1 {
+        font-size: 1.5em;
+        color:  #45a049;
+    }
+
+    button {
+        font-size: 1px;
+    }
+}

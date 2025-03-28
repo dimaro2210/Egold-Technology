@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <title>Egold Service</title>
+  <link rel="icon" type="images/png" href="images/egoldtech.png">
+  <link rel="stylesheet" href="servicestyle.css">
+</head>
+
+<body>
+  <div class="background-slider"></div>
+    
+  <nav class="navbar">
+      <h1><a href="#home" class="logo"><img class="egold-logo" style="width: 150px; padding-bottom: 0px; margin-left: 30px;" src="images/egold logo.png" alt="Egold Technology logo"></a> </div></h1>
+      <ul>
+          <li><a href="Egoldtech.html">Home</a></li>
+          <li><a href="Egoldtech.html">About</a></li>
+          <li><a href="Egoldtech.html">Contact</a></li>
+      </ul>
+  </nav>
+  
+  <header class="hero">
+      <h2 style="font-size: 3rem;">Top-Quality <span style="color: rgb(252, 118, 70);">Services for</span> Your Business</h2>
+      <p style="font-weight: bolder;">We provide AI automation, web development, and chatbot solutions.</p>
+  </header>
+  
+  <section id="services" class="services">
+      <div class="service-box">
+          <h3>Bosch SecuritySystem-BVMS</h3>
+          <p>is a powerful, scalable, and reliable security management software developed by Bosch Security Systems. It is designed to integrate video surveillance, access control, and intrusion detection into a single platform for seamless security operations.</p>
+      </div>
+      <div class="service-box">
+          <h3> ACCESS CONTROL SYSTEM-CEM</h3>
+          <p>CEMSystems is a leading provider of access control and fully integrated security management
+            systems
+            CEMSystems is part of Tyco Security Products a business unit of Tyco International, is a unified
+            group of world-leading access control, video and intrusion brands</p>
+      </div>
+      <div class="service-box">
+          <h3>INFORMATION AND COMMUNICATION TECHNOLOGY(ICT)</h3>
+          <p>Stay ahead in the digital world with 
+            top-notch Information and Communication
+             Technology (ICT) solutions! 🌐💻 
+             From seamless connectivity to smart
+              automation, we bring innovation to
+               your fingertips. Let’s power up your
+                tech game! 🚀✨.</p>
+      </div>
+      <div class="service-box">
+          <h3>MOTORGIZED GATE CONTROL SYSTEM</h3>
+          <p>Upgrade your entrance with a smooth and 
+            secure Motorized Gate Control System! 
+            🚪⚡ Enjoy effortless access, enhanced 
+            security, and a touch of modern convenience.
+             Let us handle the installation while 
+             you enjoy the ease of automation! ✅🔐</p>
+      </div>
+      <div class="service-box">
+          <h3> SPEEDSTILE, GLASSTILE AND TURNSTILE</h3>
+          <p>50% of your text is likely AI-generated
+
+            New version:
+            Smart Access, Secure Spaces! 🔒✨
+            Boost your security and efficiency with our 
+            Speedstile, Glasstile, and Turnstile solutions.
+             Crafted for smooth access and contemporary style! 🚀
+            
+            </p>
+      </div>
+      <div class="service-box">
+        <h3> INTRUDER PANIC ALARM SYSTEM</h3>
+        <p>Protect Your Space with Our Intruder Panic Alarm System! 🚨🔒
+          We provide professional installation and setup of reliable
+           Intruder Panic Alarm Systems and fire alarms, ensuring instant alerts 
+           and rapid response for your safety. Whether for your
+            home, office, or business, we’ve got you covered!</p>
+    </div>
+    <div class="service-box">
+      <h3>ELECTRICAL SERVICE</h3>
+      <p>Need a reliable electrician? ⚡ We’ve got 
+        you covered! From repairs to installations, 
+        we keep your home and business powered up. 
+        🔌💡 Give us a call today!</p>
+  </div>
+  <div class="service-box">
+    <h3> HOME AUTOMATION</h3>
+    <p>Imagine controlling your lights, security, and comfort—all
+       from your phone! 🏡✨ We make home automation easy, 
+       so you can relax and enjoy a smarter, safer home.
+        Let’s bring your home into the future!</p>
+</div>
+
+<div class="service-box">
+  <h3> MECHANICAL SERVICES</h3>
+  <p>Keeping your machines running smoothly! 🛠️ From repairs to
+     maintenance, we handle it all so you can stay up and 
+     running without the hassle. Let’s get things moving—give
+      us a call!</p>
+</div>
+<div class="service-box">
+  <h3> PLUMBERING / WATER TREATMENT</h3>
+  <p>Reliable plumbing, clean water, peace of mind! 🚰💧 From 
+    leak repairs to water treatment solutions, we keep your 
+    home flowing smoothly. Need a fix? We’re just a call away!</p>
+</div>
+<div class="service-box">
+  <h3>AIR CONDITIONING / COOLING SYSTEM</h3>
+  <p>Stay cool and comfortable all year round! ❄️☀️ From AC 
+    installation to repairs, we keep your home feeling just
+     right. Need a fix? We’re here to help—give us a call!</p>
+</div>
+<div class="service-box">
+  <h3>INTERCOMS</h3>
+  <p>Stay connected and secure with a smart intercom system! 
+    🎤🚪 Whether it’s for home or business, we make communication 
+    easy and security tighter. Let’s upgrade your space—give us a call!</p>
+</div>
+  </section>
+
+    <section class="body">
+        <div class="counter-container">
+            <h2>we have</h2>
+            <div class="floating-text" id="counter">0<span class="plus-sign">+</span></div>
+            <div class="floating-text" id="message">trusted and completed Jobs done</div>
+        </div>
+        
+         <script>
+            function countUp(target, speed = 50) {
+                let counter = document.getElementById('counter');
+                let message = document.getElementById('message');
+                let count = 0;
+                let step = Math.ceil(target / 100);
+      
+                let interval = setInterval(() => {
+                    count += step;
+                    if (count >= target) {
+                        count = target;
+                        clearInterval(interval);
+                        message.style.opacity = 1; // Show "Jobs done"
+                    }
+                    counter.firstChild.nodeValue = count; // Updates only the number
+                }, speed);
+            }
+      
+            function isInViewport(element) {
+                let rect = element.getBoundingClientRect();
+                return rect.top < window.innerHeight && rect.bottom >= 0;
+            }
+      
+            let counterTriggered = false; 
+            let targetNumber = Math.floor(Math.random() * 100) + 101;
+            let counter = document.getElementById('counter');
+      
+            function onScroll() {
+                if (!counterTriggered && isInViewport(counter)) {
+                    counter.style.opacity = 1; // Make it visible
+                    countUp(targetNumber);
+                    counterTriggered = true; // Ensure it only runs once
+                }
+            }
+      
+            window.addEventListener('scroll', onScroll);
+        </script>
+      
+    </section>
+
+  <section class="conclusion">
+    <h1> CONCLUSION</h1>
+    <p> Experience and expertise is a very powerful combination. Our experience in
+        understanding clients’ requirements, coupled with our technical expertise has
+        enabled us to provide Engineering , Security and ICT solutions to many satisfied
+        customers</p>
+        <p> The fact that Egold Technology provides Turnkey solutions and has the capacity to
+            deliver all the required products and services; makes us unique in providing you the
+            desired results. Our clients can have the comfort in being serviced by a professional
+            company that has over the years demonstrated successful installations, some of which
+            have been very complex</p>
+  </section>
+  <footer class="footer">
+           <div class="footer-container">
+          <div class="footer-section about">
+          <img style="width: 200px; margin: auto;" src="images/egold logo.png" alt="egold logo">
+            <p>Egold Techonology provide 21st century AI compliant automation services <br> to help businesses grow efficiently and effectively. 
+             <br>for more services Kindly contact us below on any of our social media  <br>handle and on our mobile cell number below</p>
+          </div>
+          
+          <div class="footer-section links">
+            <h3 class="foot">Quick Links</h3>
+            <ul>
+              <li><a href="Egoldtech.html">Home</a></li>
+              <li><a href="Egoldtech.html/about">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="Egoldtech.html/contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section contact">
+            <h3 class="foot">Contact Us</h3>
+            <p ><a href="https://info.egodldtech@gmail.com" style="text-decoration: none; color: #ffffff;">Email:info.egodldtech@gmail.com</a></p> 
+            <p><i class="fa fa-phone"></i> Phone:<a href="tel:+2347030842893" style="text-decoration: none; color: #08789e;">+2347030842893</a></p>
+          </div>
+          
+          <div class="footer-section social">
+            <h3 class="foot">Follow Us</h3>
+            <a href="https://www.facebook.com/share/18fhab85ga/" target="_self"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@user55362234?_t=ZM-8uY6FRVj5fS&_r=1" target="_self"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/erunsdlegend?igsh=OXdweDF5YTBucjhx"target="_self"><i class="fab fa-instagram" ></i></a>
+            <a href="https://info.egodldtech@gmail.com" target="_self"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+       
+        <div class="footer-bottom">
+          <p>&copy; 2025 Egold Technology. All rights reserved.</p>
+        </div>
+       
+  </footer>
+
+  <script>
+      document.querySelectorAll('.service-box').forEach(box => {
+          box.addEventListener('mouseover', () => {
+              box.style.backgroundColor = '#e0e0e0';
+          });
+          box.addEventListener('mouseout', () => {
+              box.style.backgroundColor = '#f3f3f3';
+          });
+      });
+  </script>
+</body>
+</html>
