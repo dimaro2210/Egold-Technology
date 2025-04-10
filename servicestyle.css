@@ -60,7 +60,7 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(60px);
-      opacity: 0.2; /* Increased opacity */
+      opacity: 2; /* Increased opacity */
       animation: float 15s infinite ease-in-out;
     }
 
@@ -232,4 +232,486 @@
       text-align: center;
       position: relative;
     }
+        
+    .logo {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
     
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 4rem 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--gray);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-icon {
+      background: var(--primary);
+      color: white;
+      font-size: 1.8rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem auto 1rem;
+      position: relative;
+    }
+    
+    .card-content {
+      padding: 0 1.5rem 1.5rem;
+      text-align: center;
+    }
+    
+    .card-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .card-content p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      display: none;
+    }
+    
+    .card-content p.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .learn-more {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    
+    .learn-more:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .learn-more i {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .learn-more.active i {
+      transform: rotate(180deg);
+    }
+
+    /* Success Counter */
+    .success-counter {
+      text-align: center;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      border: 1px solid var(--gray);
+    }
+
+    .counter-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+
+    .counter-text {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    /* Ratings Section - More Attractive */
+    .ratings-section {
+      background: var(--card-bg);
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--gray);
+    }
+
+    .ratings-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .ratings-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .ratings-title h2 {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      width: 100px;
+      color: #fbbf24;
+      font-size: 1rem;
+    }
+
+    .bar-container {
+      flex-grow: 1;
+      height: 12px; /* Reduced height */
+      background: var(--bg-color);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    .bar {
+      height: 100%;
+      background: var(--rating-bar);
+      border-radius: 6px;
+      width: 0; /* Start at 0 */
+      transition: width 1s ease-out;
+    }
+
+    .percentage {
+      width: 50px;
+      text-align: right;
+      color: var(--gray);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 3rem 0;
+    }
+
+    .testimonials-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .testimonials-title h2 {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--gray);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+    }
+
+    .testimonial-rating {
+      color: #fbbf24;
+      margin-top: 0.2rem;
+    }
+
+    .testimonial-text {
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Conclusion Section */
+    .conclusion {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .conclusion .container {
+      max-width: 800px;
+    }
+    
+    .conclusion h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .conclusion p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--footer-bg);
+      color: white;
+      padding: 3rem 1rem 1rem;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .footer-section.about img {
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section.about p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section.links ul {
+      list-style: none;
+    }
+    
+    .footer-section.links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-section.links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+    }
+    
+    .footer-section.links a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-section.contact p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .footer-section.contact i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    
+    .footer-section.social .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .footer-section.social a {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .footer-section.social a:hover {
+      background: var(--accent);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-bottom p {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .services-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .counter-number {
+        font-size: 2.5rem;
+      }
+
+      .language-selector {
+        right: 65px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2, .ratings-title h2, .testimonials-title h2 {
+        font-size: 1.5rem;
+      }
+      
+      .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .card-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .rating-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .bar-container {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+      }
+
+      .language-selector {
+        top: 10px;
+        right: 60px;
+      }
+    }
+/*style ends here*/
