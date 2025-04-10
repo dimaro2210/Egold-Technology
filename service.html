@@ -1,231 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-  <title>Egold Service</title>
-  <link rel="icon" type="images/png" href="images/egoldtech.png">
-  <link rel="stylesheet" href="servicestyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Egold Technology</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
+   <link type="stylesheet"  href="service.css">
 </head>
-
 <body>
-  <div class="background-slider"></div>
-    
-  <nav class="navbar">
-      <h1><a href="#home" class="logo"><img class="egold-logo" style="width: 150px; padding-bottom: 0px; margin-left: 30px;" src="images/egold logo.png" alt="Egold Technology logo"></a> </div></h1>
-      <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html">About</a></li>
-          <li><a href="index.html">Contact</a></li>
-      </ul>
-  </nav>
-  
-  <header class="hero">
-      <h2 style="font-size: 3rem;">Top-Quality <span style="color: rgb(252, 118, 70);">Services for</span> Your Business</h2>
-      <p style="font-weight: bolder;">We provide AI automation, web development, and chatbot solutions.</p>
-  </header>
-  
-  <section id="services" class="services">
-      <div class="service-box">
-          <h3>Bosch SecuritySystem-BVMS</h3>
-          <p>is a powerful, scalable, and reliable security management software developed by Bosch Security Systems. It is designed to integrate video surveillance, access control, and intrusion detection into a single platform for seamless security operations.</p>
-      </div>
-      <div class="service-box">
-          <h3> ACCESS CONTROL SYSTEM-CEM</h3>
-          <p>CEMSystems is a leading provider of access control and fully integrated security management
-            systems
-            CEMSystems is part of Tyco Security Products a business unit of Tyco International, is a unified
-            group of world-leading access control, video and intrusion brands</p>
-      </div>
-      <div class="service-box">
-          <h3>INFORMATION AND COMMUNICATION TECHNOLOGY(ICT)</h3>
-          <p>Stay ahead in the digital world with 
-            top-notch Information and Communication
-             Technology (ICT) solutions! 🌐💻 
-             From seamless connectivity to smart
-              automation, we bring innovation to
-               your fingertips. Let’s power up your
-                tech game! 🚀✨.</p>
-      </div>
-      <div class="service-box">
-          <h3>MOTORGIZED GATE CONTROL SYSTEM</h3>
-          <p>Upgrade your entrance with a smooth and 
-            secure Motorized Gate Control System! 
-            🚪⚡ Enjoy effortless access, enhanced 
-            security, and a touch of modern convenience.
-             Let us handle the installation while 
-             you enjoy the ease of automation! ✅🔐</p>
-      </div>
-      <div class="service-box">
-          <h3> SPEEDSTILE, GLASSTILE AND TURNSTILE</h3>
-          <p>50% of your text is likely AI-generated
 
-            New version:
-            Smart Access, Secure Spaces! 🔒✨
-            Boost your security and efficiency with our 
-            Speedstile, Glasstile, and Turnstile solutions.
-             Crafted for smooth access and contemporary style! 🚀
-            
-            </p>
-      </div>
-      <div class="service-box">
-        <h3> INTRUDER PANIC ALARM SYSTEM</h3>
-        <p>Protect Your Space with Our Intruder Panic Alarm System! 🚨🔒
-          We provide professional installation and setup of reliable
-           Intruder Panic Alarm Systems and fire alarms, ensuring instant alerts 
-           and rapid response for your safety. Whether for your
-            home, office, or business, we’ve got you covered!</p>
-    </div>
-    <div class="service-box">
-      <h3>ELECTRICAL SERVICE</h3>
-      <p>Need a reliable electrician? ⚡ We’ve got 
-        you covered! From repairs to installations, 
-        we keep your home and business powered up. 
-        🔌💡 Give us a call today!</p>
+  <!-- Floating 3D Background Shapes - More Visible -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
   </div>
-  <div class="service-box">
-    <h3> HOME AUTOMATION</h3>
-    <p>Imagine controlling your lights, security, and comfort—all
-       from your phone! 🏡✨ We make home automation easy, 
-       so you can relax and enjoy a smarter, safer home.
-        Let’s bring your home into the future!</p>
-</div>
 
-<div class="service-box">
-  <h3> MECHANICAL SERVICES</h3>
-  <p>Keeping your machines running smoothly! 🛠️ From repairs to
-     maintenance, we handle it all so you can stay up and 
-     running without the hassle. Let’s get things moving—give
-      us a call!</p>
-</div>
-<div class="service-box">
-  <h3> PLUMBERING / WATER TREATMENT</h3>
-  <p>Reliable plumbing, clean water, peace of mind! 🚰💧 From 
-    leak repairs to water treatment solutions, we keep your 
-    home flowing smoothly. Need a fix? We’re just a call away!</p>
-</div>
-<div class="service-box">
-  <h3>AIR CONDITIONING / COOLING SYSTEM</h3>
-  <p>Stay cool and comfortable all year round! ❄️☀️ From AC 
-    installation to repairs, we keep your home feeling just
-     right. Need a fix? We’re here to help—give us a call!</p>
-</div>
-<div class="service-box">
-  <h3>INTERCOMS</h3>
-  <p>Stay connected and secure with a smart intercom system! 
-    🎤🚪 Whether it’s for home or business, we make communication 
-    easy and security tighter. Let’s upgrade your space—give us a call!</p>
-</div>
-  </section>
+  <!-- Smaller Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <div class="theme-icon sun"><i class="mdi mdi-white-balance-sunny"></i></div>
+    <div class="theme-icon moon"><i class="mdi mdi-moon-waning-crescent"></i></div>
+  </div>
 
-    <section class="body">
-        <div class="counter-container">
-            <h2>we have</h2>
-            <div class="floating-text" id="counter">0<span class="plus-sign">+</span></div>
-            <div class="floating-text" id="message">trusted and completed Jobs done</div>
+  <!-- Language Selector -->
+  <div class="language-selector" id="languageSelector">
+    <button class="language-btn" id="languageBtn">
+      <span id="currentLanguage">English</span>
+      <i class="mdi mdi-chevron-down"></i>
+    </button>
+    <div class="language-dropdown" id="languageDropdown">
+      <div class="language-option" data-lang="en">English</div>
+      <div class="language-option" data-lang="fr">Français</div>
+      <div class="language-option" data-lang="es">Español</div>
+      <div class="language-option" data-lang="de">Deutsch</div>
+      <div class="language-option" data-lang="zh">中文</div>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="image/egold.png" alt="Egold Technology">
+      </a>
+      <h1 id="headerTitle">Professional Security Solutions</h1>
+      <p id="headerSubtitle">Comprehensive protection and automation services for modern needs</p>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="servicesTitle">Our Expert Services</h2>
+        <p id="servicesSubtitle">High-quality solutions tailored to your security and technology requirements</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-cctv"></i>
+          </div>
+          <div class="card-content">
+            <h3>Bosch SecuritySystem-BVMS</h3>
+            <p class="service-desc">Discover a powerful, scalable, and reliable security management solution developed by Bosch Security Systems. It seamlessly integrates video surveillance, access control, and intrusion detection.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
         </div>
         
-         <script>
-            function countUp(target, speed = 50) {
-                let counter = document.getElementById('counter');
-                let message = document.getElementById('message');
-                let count = 0;
-                let step = Math.ceil(target / 100);
-      
-                let interval = setInterval(() => {
-                    count += step;
-                    if (count >= target) {
-                        count = target;
-                        clearInterval(interval);
-                        message.style.opacity = 1; // Show "Jobs done"
-                    }
-                    counter.firstChild.nodeValue = count; // Updates only the number
-                }, speed);
-            }
-      
-            function isInViewport(element) {
-                let rect = element.getBoundingClientRect();
-                return rect.top < window.innerHeight && rect.bottom >= 0;
-            }
-      
-            let counterTriggered = false; 
-            let targetNumber = Math.floor(Math.random() * 100) + 101;
-            let counter = document.getElementById('counter');
-      
-            function onScroll() {
-                if (!counterTriggered && isInViewport(counter)) {
-                    counter.style.opacity = 1; // Make it visible
-                    countUp(targetNumber);
-                    counterTriggered = true; // Ensure it only runs once
-                }
-            }
-      
-            window.addEventListener('scroll', onScroll);
-        </script>
-      
-    </section>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-lock-smart"></i>
+          </div>
+          <div class="card-content">
+            <h3>ACCESS CONTROL SYSTEM-CEM</h3>
+            <p class="service-desc">CEMSystems offers fully integrated security management systems and access control solutions as part of Tyco Security Products. Enjoy unified security with industry-leading technology.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-network"></i>
+          </div>
+          <div class="card-content">
+            <h3>INFORMATION AND COMMUNICATION TECHNOLOGY (ICT)</h3>
+            <p class="service-desc">Stay ahead in the digital world with top-notch ICT solutions—from seamless connectivity to smart automation, we bring innovation right to your fingertips.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-gate"></i>
+          </div>
+          <div class="card-content">
+            <h3>MOTORIZED GATE CONTROL SYSTEM</h3>
+            <p class="service-desc">Upgrade your entrance with a secure Motorized Gate Control System. Experience effortless access and enhanced security backed by modern technology.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-turnstile"></i>
+          </div>
+          <div class="card-content">
+            <h3>SPEEDSTILE, GLASSTILE AND TURNSTILE</h3>
+            <p class="service-desc">Boost your security and efficiency with our contemporary Speedstile, Glasstile, and Turnstile solutions—crafted for smooth access and modern style.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-alarm-light"></i>
+          </div>
+          <div class="card-content">
+            <h3>INTRUDER PANIC ALARM SYSTEM</h3>
+            <p class="service-desc">Protect your space with our Intruder Panic Alarm System. We ensure professional installation and rapid response to keep you safe and secure.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 7 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-flash"></i>
+          </div>
+          <div class="card-content">
+            <h3>ELECTRICAL SERVICE</h3>
+            <p class="service-desc">From repairs to installations, our reliable electrical services keep your home and business powered efficiently and effectively.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 8 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-home-automation"></i>
+          </div>
+          <div class="card-content">
+            <h3>HOME AUTOMATION</h3>
+            <p class="service-desc">Imagine controlling your lights, security, and comfort—all from your phone. We make home automation both smart and accessible.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 9 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-cog"></i>
+          </div>
+          <div class="card-content">
+            <h3>MECHANICAL SERVICES</h3>
+            <p class="service-desc">Keep your machines running smoothly with our comprehensive mechanical services. We handle everything from repairs to routine maintenance.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 10 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-pipe"></i>
+          </div>
+          <div class="card-content">
+            <h3>PLUMBERING / WATER TREATMENT</h3>
+            <p class="service-desc">Enjoy reliable plumbing and water treatment solutions that keep your home flowing smoothly. We're just a call away for any fixes!</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 11 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-air-conditioner"></i>
+          </div>
+          <div class="card-content">
+            <h3>AIR CONDITIONING / COOLING SYSTEM</h3>
+            <p class="service-desc">Stay cool and comfortable all year long with our expert AC installation and repair services.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+        
+        <!-- Service 12 -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="mdi mdi-phone-classic"></i>
+          </div>
+          <div class="card-content">
+            <h3>INTERCOMS</h3>
+            <p class="service-desc">Enhance your security and connectivity with our smart intercom systems, perfect for both home and business environments.</p>
+            <button class="learn-more"><span class="learn-more-text">Learn More</span> <i class="mdi mdi-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
 
-  <section class="conclusion">
-    <h1> CONCLUSION</h1>
-    <p> Experience and expertise is a very powerful combination. Our experience in
-        understanding clients’ requirements, coupled with our technical expertise has
-        enabled us to provide Engineering , Security and ICT solutions to many satisfied
-        customers</p>
-        <p> The fact that Egold Technology provides Turnkey solutions and has the capacity to
-            deliver all the required products and services; makes us unique in providing you the
-            desired results. Our clients can have the comfort in being serviced by a professional
-            company that has over the years demonstrated successful installations, some of which
-            have been very complex</p>
+      <!-- Success Counter -->
+      <div class="success-counter">
+        <h3 id="counterTitle">Our Success in Numbers</h3>
+        <div class="counter-number" id="successCounter">0</div>
+        <p class="counter-text" id="counterSubtitle">Successful Projects Completed</p>
+      </div>
+
+      <!-- Ratings Section -->
+      <div class="ratings-section">
+        <div class="ratings-container">
+          <div class="ratings-title">
+            <h2 id="ratingsTitle">Customer Satisfaction Ratings</h2>
+            <p id="ratingsSubtitle">What our clients say about our services</p>
+          </div>
+
+          <div class="rating-bar">
+            <div class="stars">★★★★★</div>
+            <div class="bar-container">
+              <div class="bar" id="fiveStarBar"></div>
+            </div>
+            <div class="percentage">95%</div>
+          </div>
+
+          <div class="rating-bar">
+            <div class="stars">★★★★☆</div>
+            <div class="bar-container">
+              <div class="bar" id="fourStarBar"></div>
+            </div>
+            <div class="percentage">3%</div>
+          </div>
+
+          <div class="rating-bar">
+            <div class="stars">★★★☆☆</div>
+            <div class="bar-container">
+              <div class="bar" id="threeStarBar"></div>
+            </div>
+            <div class="percentage">1%</div>
+          </div>
+
+          <div class="rating-bar">
+            <div class="stars">★★☆☆☆</div>
+            <div class="bar-container">
+              <div class="bar" id="twoStarBar"></div>
+            </div>
+            <div class="percentage">0.5%</div>
+          </div>
+
+          <div class="rating-bar">
+            <div class="stars">★☆☆☆☆</div>
+            <div class="bar-container">
+              <div class="bar" id="oneStarBar"></div>
+            </div>
+            <div class="percentage">0.5%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonials">
+        <div class="testimonials-title">
+          <h2 id="testimonialsTitle">What Our Clients Say</h2>
+          <p id="testimonialsSubtitle">Hear from our satisfied customers</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">JD</div>
+              <div>
+                <div class="testimonial-author">John Doe</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+            </div>
+            <div class="testimonial-text" id="testimonial1">
+              "Egold Technology installed our security system and it's been flawless. Their team was professional, knowledgeable, and completed the work ahead of schedule. Highly recommend!"
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">AS</div>
+              <div>
+                <div class="testimonial-author">Alice Smith</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+            </div>
+            <div class="testimonial-text" id="testimonial2">
+              "The home automation system they installed has transformed how we live. Everything works seamlessly from our phones. Their after-sales support is also excellent."
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">RB</div>
+              <div>
+                <div class="testimonial-author">Robert Brown</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+            </div>
+            <div class="testimonial-text" id="testimonial3">
+              "We've used Egold for multiple projects across our office buildings. Their ICT solutions are top-notch and their team understands business security needs perfectly."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Conclusion Section -->
+  <section class="conclusion">
+    <div class="container">
+      <h2 id="conclusionTitle">Our Commitment to Excellence</h2>
+      <p id="conclusionText1">Experience and expertise are a powerful combination. Our deep understanding of client requirements and technical know‐how has delivered innovative Engineering, Security, and ICT solutions to many satisfied customers.</p>
+      <p id="conclusionText2">Egold Technology offers turnkey solutions with the capacity to handle even the most complex installations, giving you peace of mind with a service that's both professional and dependable.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-           <div class="footer-container">
-          <div class="footer-section about">
-          <img style="width: 200px; margin: auto;" src="images/egold logo.png" alt="egold logo">
-            <p>Egold Techonology provide 21st century AI compliant automation services <br> to help businesses grow efficiently and effectively. 
-             <br>for more services Kindly contact us below on any of our social media  <br>handle and on our mobile cell number below</p>
-          </div>
-          
-          <div class="footer-section links">
-            <h3 class="foot">Quick Links</h3>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="index.html/about">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="index.html/contact">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section contact">
-            <h3 class="foot">Contact Us</h3>
-            <p ><a href="https://info.egodldtech@gmail.com" style="text-decoration: none; color: #ffffff;">Email:info.egodldtech@gmail.com</a></p> 
-            <p><i class="fa fa-phone"></i> Phone:<a href="tel:+2347030842893" style="text-decoration: none; color: #08789e;">+2347030842893</a></p>
-          </div>
-          
-          <div class="footer-section social">
-            <h3 class="foot">Follow Us</h3>
-            <a href="https://www.facebook.com/share/18fhab85ga/" target="_self"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@user55362234?_t=ZM-8uY6FRVj5fS&_r=1" target="_self"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/erunsdlegend?igsh=OXdweDF5YTBucjhx"target="_self"><i class="fab fa-instagram" ></i></a>
-            <a href="https://info.egodldtech@gmail.com" target="_self"><i class="fa fa-envelope"></i></a>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <img src="images/egold-logo-white.png" alt="Egold Technology">
+          <p id="footerAbout">Egold Technology provides professional security and automation services to help businesses and homeowners protect their assets with cutting-edge solutions.</p>
+        </div>
+        
+        <div class="footer-section links">
+          <h3 id="footerLinksTitle">Quick Links</h3>
+          <ul>
+            <li><a href="#" id="footerLink1">Home</a></li>
+            <li><a href="#" id="footerLink2">About Us</a></li>
+            <li><a href="#" id="footerLink3">Services</a></li>
+            <li><a href="#" id="footerLink4">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section contact">
+          <h3 id="footerContactTitle">Contact Us</h3>
+          <p><i class="mdi mdi-email"></i> info.egodldtech@gmail.com</p>
+          <p><i class="mdi mdi-phone"></i> +2347030842893</p>
+        </div>
+        
+        <div class="footer-section social">
+          <h3 id="footerSocialTitle">Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="mdi mdi-facebook"></i></a>
+            <a href="#"><i class="mdi mdi-twitter"></i></a>
+            <a href="#"><i class="mdi mdi-instagram"></i></a>
+            <a href="#"><i class="mdi mdi-linkedin"></i></a>
           </div>
         </div>
-       
-        <div class="footer-bottom">
-          <p style="text-align: centre;">&copy; 2025 Egold Technology. All rights reserved.</p>
-        </div>
-       
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="footerYear">2025</span> Egold Technology. <span id="footerRights">All rights reserved.</span></p>
+      </div>
+    </div>
   </footer>
 
   <script>
-      document.querySelectorAll('.service-box').forEach(box => {
-          box.addEventListener('mouseover', () => {
-              box.style.backgroundColor = '#e0e0e0';
-          });
-          box.addEventListener('mouseout', () => {
-              box.style.backgroundColor = '#f3f3f3';
-          });
+    // Language translations
+    const translations = {
+      en: {
+        headerTitle: "Professional Security Solutions",
+        headerSubtitle: "Comprehensive protection and automation services for modern needs",
+        servicesTitle: "Our Expert Services",
+        servicesSubtitle: "High-quality solutions tailored to your security and technology requirements",
+        learnMore: "Learn More",
+        showLess: "Show Less",
+        counterTitle: "Our Success in Numbers",
+        counterSubtitle: "Successful Projects Completed",
+        ratingsTitle: "Customer Satisfaction Ratings",
+        ratingsSubtitle: "What our clients say about our services",
+        testimonialsTitle: "What Our Clients Say",
+        testimonialsSubtitle: "Hear from our satisfied customers",
+        testimonial1: "\"Egold Technology installed our security system and it's been flawless. Their team was professional, knowledgeable, and completed the work ahead of schedule. Highly recommend!\"",
+        testimonial2: "\"The home automation system they installed has transformed how we live. Everything works seamlessly from our phones. Their after-sales support is also excellent.\"",
+        testimonial3: "\"We've used Egold for multiple projects across our office buildings. Their ICT solutions are top-notch and their team understands business security needs perfectly.\"",
+        conclusionTitle: "Our Commitment to Excellence",
+        conclusionText1: "Experience and expertise are a powerful combination. Our deep understanding of client requirements and technical know‐how has delivered innovative Engineering, Security, and ICT solutions to many satisfied customers.",
+        conclusionText2: "Egold Technology offers turnkey solutions with the capacity to handle even the most complex installations, giving you peace of mind with a service that's both professional and dependable.",
+        footerAbout: "Egold Technology provides professional security and automation services to help businesses and homeowners protect their assets with cutting-edge solutions.",
+        footerLinksTitle: "Quick Links",
+        footerLink1: "Home",
+        footerLink2: "About Us",
+        footerLink3: "Services",
+        footerLink4: "Contact",
+        footerContactTitle: "Contact Us",
+        footerSocialTitle: "Connect With Us",
+        footerRights: "All rights reserved."
+      },
+      fr: {
+        headerTitle: "Solutions de Sécurité Professionnelles",
+        headerSubtitle: "Services complets de protection et d'automatisation pour les besoins modernes",
+        servicesTitle: "Nos Services Experts",
+        servicesSubtitle: "Des solutions de haute qualité adaptées à vos besoins en sécurité et technologie",
+        learnMore: "En savoir plus",
+        showLess: "Montrer moins",
+        counterTitle: "Notre Succès en Chiffres",
+        counterSubtitle: "Projets Réussis Complétés",
+        ratingsTitle: "Évaluations de Satisfaction Client",
+        ratingsSubtitle: "Ce que nos clients disent de nos services",
+        testimonialsTitle: "Témoignages Clients",
+        testimonialsSubtitle: "Découvrez ce que nos clients satisfaits disent",
+        testimonial1: "\"Egold Technology a installé notre système de sécurité et il est impeccable. Leur équipe était professionnelle, compétente et a terminé le travail en avance sur le calendrier. Je recommande vivement !\"",
+        testimonial2: "\"Le système domotique qu'ils ont installé a transformé notre façon de vivre. Tout fonctionne parfaitement depuis nos téléphones. Leur support après-vente est également excellent.\"",
+        testimonial3: "\"Nous avons utilisé Egold pour plusieurs projets dans nos immeubles de bureaux. Leurs solutions TIC sont excellentes et leur équipe comprend parfaitement les besoins en sécurité des entreprises.\"",
+        conclusionTitle: "Notre Engagement envers l'Excellence",
+        conclusionText1: "L'expérience et l'expertise sont une combinaison puissante. Notre compréhension approfondie des besoins des clients et notre savoir-faire technique ont permis de fournir des solutions innovantes en ingénierie, sécurité et TIC à de nombreux clients satisfaits.",
+        conclusionText2: "Egold Technology propose des solutions clés en main capables de gérer même les installations les plus complexes, vous offrant ainsi la tranquillité d'esprit grâce à un service à la fois professionnel et fiable.",
+        footerAbout: "Egold Technology fournit des services professionnels de sécurité et d'automatisation pour aider les entreprises et les propriétaires à protéger leurs actifs avec des solutions de pointe.",
+        footerLinksTitle: "Liens Rapides",
+        footerLink1: "Accueil",
+        footerLink2: "À propos",
+        footerLink3: "Services",
+        footerLink4: "Contact",
+        footerContactTitle: "Contactez-nous",
+        footerSocialTitle: "Connectez-vous avec nous",
+        footerRights: "Tous droits réservés."
+      },
+      es: {
+        headerTitle: "Soluciones de Seguridad Profesionales",
+        headerSubtitle: "Servicios completos de protección y automatización para necesidades modernas",
+        servicesTitle: "Nuestros Servicios Expertos",
+        servicesSubtitle: "Soluciones de alta calidad adaptadas a sus requisitos de seguridad y tecnología",
+        learnMore: "Saber más",
+        showLess: "Mostrar menos",
+        counterTitle: "Nuestro Éxito en Números",
+        counterSubtitle: "Proyectos Exitosos Completados",
+        ratingsTitle: "Calificaciones de Satisfacción del Cliente",
+        ratingsSubtitle: "Lo que nuestros clientes dicen sobre nuestros servicios",
+        testimonialsTitle: "Lo Que Dicen Nuestros Clientes",
+        testimonialsSubtitle: "Escuche a nuestros clientes satisfechos",
+        testimonial1: "\"Egold Technology instaló nuestro sistema de seguridad y ha sido impecable. Su equipo fue profesional, conocedor y completó el trabajo antes de lo programado. ¡Altamente recomendado!\"",
+        testimonial2: "\"El sistema de automatización del hogar que instalaron ha transformado nuestra forma de vivir. Todo funciona perfectamente desde nuestros teléfonos. Su soporte postventa también es excelente.\"",
+        testimonial3: "\"Hemos utilizado Egold para múltiples proyectos en nuestros edificios de oficinas. Sus soluciones TIC son de primera clase y su equipo comprende perfectamente las necesidades de seguridad empresarial.\"",
+        conclusionTitle: "Nuestro Compromiso con la Excelencia",
+        conclusionText1: "La experiencia y la experiencia son una combinación poderosa. Nuestra profunda comprensión de los requisitos de los clientes y el conocimiento técnico han proporcionado soluciones innovadoras de ingeniería, seguridad y TIC a muchos clientes satisfechos.",
+        conclusionText2: "Egold Technology ofrece soluciones llave en mano con la capacidad de manejar incluso las instalaciones más complejas, brindándole tranquilidad con un servicio profesional y confiable.",
+        footerAbout: "Egold Technology proporciona servicios profesionales de seguridad y automatización para ayudar a empresas y propietarios a proteger sus activos con soluciones de vanguardia.",
+        footerLinksTitle: "Enlaces Rápidos",
+        footerLink1: "Inicio",
+        footerLink2: "Sobre Nosotros",
+        footerLink3: "Servicios",
+        footerLink4: "Contacto",
+        footerContactTitle: "Contáctenos",
+        footerSocialTitle: "Conéctate con Nosotros",
+        footerRights: "Todos los derechos reservados."
+      },
+      de: {
+        headerTitle: "Professionelle Sicherheitslösungen",
+        headerSubtitle: "Umfassende Schutz- und Automatisierungsdienstleistungen für moderne Anforderungen",
+        servicesTitle: "Unsere Expertenleistungen",
+        servicesSubtitle: "Hochwertige Lösungen, die auf Ihre Sicherheits- und Technologieanforderungen zugeschnitten sind",
+        learnMore: "Mehr erfahren",
+        showLess: "Weniger anzeigen",
+        counterTitle: "Unser Erfolg in Zahlen",
+        counterSubtitle: "Erfolgreich abgeschlossene Projekte",
+        ratingsTitle: "Kundenzufriedenheitsbewertungen",
+        ratingsSubtitle: "Was unsere Kunden über unsere Dienstleistungen sagen",
+        testimonialsTitle: "Was unsere Kunden sagen",
+        testimonialsSubtitle: "Hören Sie von unseren zufriedenen Kunden",
+        testimonial1: "\"Egold Technology hat unser Sicherheitssystem installiert und es war einwandfrei. Ihr Team war professionell, kompetent und hat die Arbeit vor dem Zeitplan abgeschlossen. Sehr zu empfehlen!\"",
+        testimonial2: "\"Das von ihnen installierte Heimautomatisierungssystem hat unsere Lebensweise verändert. Alles funktioniert nahtlos von unseren Telefonen aus. Ihr Kundendienst ist ebenfalls ausgezeichnet.\"",
+        testimonial3: "\"Wir haben Egold für mehrere Projekte in unseren Bürogebäuden eingesetzt. Ihre IKT-Lösungen sind erstklassig und ihr Team versteht die Sicherheitsanforderungen von Unternehmen perfekt.\"",
+        conclusionTitle: "Unser Engagement für Exzellenz",
+        conclusionText1: "Erfahrung und Fachwissen sind eine starke Kombination. Unser tiefes Verständnis für Kundenanforderungen und technisches Know-how hat vielen zufriedenen Kunden innovative Lösungen in den Bereichen Engineering, Sicherheit und IKT geliefert.",
+        conclusionText2: "Egold Technology bietet schlüsselfertige Lösungen mit der Kapazität, selbst die komplexesten Installationen zu handhaben, und gibt Ihnen so die Gewissheit eines professionellen und zuverlässigen Services.",
+        footerAbout: "Egold Technology bietet professionelle Sicherheits- und Automatisierungsdienstleistungen, die Unternehmen und Hausbesitzern helfen, ihre Vermögenswerte mit modernsten Lösungen zu schützen.",
+        footerLinksTitle: "Schnellzugriff",
+        footerLink1: "Startseite",
+        footerLink2: "Über uns",
+        footerLink3: "Dienstleistungen",
+        footerLink4: "Kontakt",
+        footerContactTitle: "Kontaktieren Sie uns",
+        footerSocialTitle: "Verbinden Sie sich mit uns",
+        footerRights: "Alle Rechte vorbehalten."
+      },
+      zh: {
+        headerTitle: "专业安全解决方案",
+        headerSubtitle: "为现代需求提供全面的保护和自动化服务",
+        servicesTitle: "我们的专业服务",
+        servicesSubtitle: "高质量的安全和技术解决方案",
+        learnMore: "了解更多",
+        showLess: "显示较少",
+        counterTitle: "我们的成功数字",
+        counterSubtitle: "成功完成的项目",
+        ratingsTitle: "客户满意度评分",
+        ratingsSubtitle: "客户对我们服务的评价",
+        testimonialsTitle: "客户评价",
+        testimonialsSubtitle: "听听我们满意客户的声音",
+        testimonial1: "\"Egold Technology安装的安全系统完美无缺。他们的团队专业、知识渊博，并提前完成了工作。强烈推荐！\"",
+        testimonial2: "\"他们安装的家庭自动化系统改变了我们的生活。一切都可以通过手机无缝操作。他们的售后服务也非常出色。\"",
+        testimonial3: "\"我们在多个办公大楼项目中使用了Egold。他们的ICT解决方案一流，团队完全理解企业的安全需求。\"",
+        conclusionTitle: "我们对卓越的承诺",
+        conclusionText1: "经验和专业知识是强大的组合。我们深刻理解客户需求和技术诀窍，为众多满意客户提供了创新的工程、安全和ICT解决方案。",
+        conclusionText2: "Egold Technology提供交钥匙解决方案，能够处理最复杂的安装，为您提供既专业又可靠的服务，让您高枕无忧。",
+        footerAbout: "Egold Technology提供专业安全和自动化服务，帮助企业和房主用尖端解决方案保护资产。",
+        footerLinksTitle: "快速链接",
+        footerLink1: "首页",
+        footerLink2: "关于我们",
+        footerLink3: "服务",
+        footerLink4: "联系我们",
+        footerContactTitle: "联系我们",
+        footerSocialTitle: "关注我们",
+        footerRights: "版权所有。"
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Set current year in footer
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+      // Theme Toggle Functionality
+      const themeToggle = document.getElementById('themeToggle');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // Check for saved theme or preferred scheme
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.classList.add('active');
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.body.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+          themeToggle.classList.remove('active');
+        } else {
+          document.body.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeToggle.classList.add('active');
+        }
       });
+
+      // Language Selector Functionality
+      const languageBtn = document.getElementById('languageBtn');
+      const languageDropdown = document.getElementById('languageDropdown');
+      const currentLanguage = document.getElementById('currentLanguage');
+      
+      languageBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        languageDropdown.classList.toggle('show');
+      });
+      
+      document.addEventListener('click', function() {
+        languageDropdown.classList.remove('show');
+      });
+      
+      // Language selection
+      const languageOptions = document.querySelectorAll('.language-option');
+      languageOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          currentLanguage.textContent = this.textContent;
+          changeLanguage(lang);
+          languageDropdown.classList.remove('show');
+        });
+      });
+      
+      // Change language function
+      function changeLanguage(lang) {
+        const elements = translations[lang];
+        for (const key in elements) {
+          const element = document.getElementById(key);
+          if (element) {
+            if (key === 'learnMore') {
+              // Handle learn more buttons separately
+              const buttons = document.querySelectorAll('.learn-more-text');
+              buttons.forEach(btn => {
+                if (btn.textContent.includes('Learn More') || btn.textContent.includes('En savoir plus') || 
+                    btn.textContent.includes('Saber más') || btn.textContent.includes('Mehr erfahren') || 
+                    btn.textContent.includes('了解更多')) {
+                  btn.textContent = elements[key];
+                } else {
+                  btn.textContent = elements['showLess'];
+                }
+              });
+            } else {
+              element.textContent = elements[key];
+            }
+          }
+        }
+      }
+
+      // Learn More buttons functionality
+      const learnMoreBtns = document.querySelectorAll('.learn-more');
+      
+      learnMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const card = this.closest('.service-card');
+          const desc = card.querySelector('.service-desc');
+          
+          desc.classList.toggle('show');
+          this.classList.toggle('active');
+          
+          // Change button text based on state
+          const learnMoreText = this.querySelector('.learn-more-text');
+          if (desc.classList.contains('show')) {
+            learnMoreText.textContent = translations[currentLanguage.textContent.toLowerCase() === 'français' ? 'fr' : 
+                                        currentLanguage.textContent.toLowerCase() === 'español' ? 'es' :
+                                        currentLanguage.textContent.toLowerCase() === 'deutsch' ? 'de' :
+                                        currentLanguage.textContent.toLowerCase() === '中文' ? 'zh' : 'en'].showLess;
+            this.innerHTML = learnMoreText.outerHTML + ' <i class="mdi mdi-chevron-up"></i>';
+          } else {
+            learnMoreText.textContent = translations[currentLanguage.textContent.toLowerCase() === 'français' ? 'fr' : 
+                                        currentLanguage.textContent.toLowerCase() === 'español' ? 'es' :
+                                        currentLanguage.textContent.toLowerCase() === 'deutsch' ? 'de' :
+                                        currentLanguage.textContent.toLowerCase() === '中文' ? 'zh' : 'en'].learnMore;
+            this.innerHTML = learnMoreText.outerHTML + ' <i class="mdi mdi-chevron-down"></i>';
+          }
+        });
+      });
+      
+      // Animation on scroll for service cards
+      const serviceCards = document.querySelectorAll('.service-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      serviceCards.forEach((card, index) => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `all 0.3s ease ${index * 0.1}s`;
+        observer.observe(card);
+      });
+
+      // Success Counter Animation
+      const counter = document.getElementById('successCounter');
+      const target = 128; // Changed to count to 120+
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+
+      let current = 0;
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target + '+'; // Display as "120+"
+        }
+      };
+
+      // Start counter when it comes into view
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          updateCounter();
+          counterObserver.unobserve(counter);
+        }
+      }, { threshold: 0.5 });
+
+      counterObserver.observe(counter);
+
+      // Animate rating bars
+      const animateRatingBars = () => {
+        document.getElementById('fiveStarBar').style.width = '95%';
+        document.getElementById('fourStarBar').style.width = '3%';
+        document.getElementById('threeStarBar').style.width = '1%';
+        document.getElementById('twoStarBar').style.width = '0.5%';
+        document.getElementById('oneStarBar').style.width = '0.5%';
+      };
+
+      // Start rating bar animation when section comes into view
+      const ratingsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateRatingBars();
+          ratingsObserver.unobserve(entries[0].target);
+        }
+      }, { threshold: 0.1 });
+
+      const ratingsSection = document.querySelector('.ratings-section');
+      if (ratingsSection) {
+        ratingsObserver.observe(ratingsSection);
+      }
+    });
   </script>
 </body>
-</html>
+  </html>
