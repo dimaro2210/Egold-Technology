@@ -3,724 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Egold Technology - Building the future with innovative construction, solar energy, and security solutions">
+    <meta name="keywords" content="solar installation, CCTV, construction, renewable energy, security systems">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-    <title>Egold Technology</title>
+    <title>Egold Technology - Construction & Security Solutions</title>
     <link rel="icon" type="images/png" href="images/egoldtech.png">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    
+   >
 </head>
-<style>
-   .contact {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            background: url('https://i.pinimg.com/originals/2c/f1/1a/2cf11a84d01dba321027f4707f5ef34a.gif') no-repeat center center/cover;
-        }
-        .contact-container {
-            width: 90%;
-            max-width: 600px;
-            background: rgba(16, 69, 94, 0.411);
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .contact-h2 {
-            margin-bottom: 10px;
-        }
-        .map-container {
-            width: 100%;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .contact-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            background: #225b69;;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 16px;
-        }
-        .contact-btn:hover {
-            background: #0056b3;
-        }
-        
-   .aboutSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #f9f9f9;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-.section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 50px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.left {
-    flex-direction: column-reverse;
-}
-
-@media (min-width: 768px) {
-    .section {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-    .left {
-        flex-direction: row;
-    }
-    .right {
-        flex-direction: row-reverse;
-    }
-}
-
-.text-section {
-    max-width: 45%;
-}
-@media (max-width:900px) {
-  .text-section {
-    max-width: 95%;
-  }
-}
-.text-section h1 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-}
-
-.text-section p {
-    color: #555;
-    font-size: 16px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.829);
-}
-
-.fade-in-left {
-    transform: translateX(-50px);
-}
-
-.fade-in-right {
-    transform: translateX(50px);
-}
-
-.visible {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-}
-
-.floating-text:hover {
-    transform: scale(1.1);
-  }
-
-  /* Hide Image on Small Screens */
-  @media (max-width: 768px) {
-    .image-container {
-      display: none;
-    }
-    #head1{
-      margin-left: -60px;
-      font-size: 20px;
-    }
-    #para{
-     
-    }
-    /* Adjust text content layout on small screens */
-    .col-2 {
-      width: 100%;
-      text-align: left;
-    }
-  }
-</style>
 
 <body>
-
-  <!--beginning of header-->
-  
-    <header class="menu">
-  <div class="icon"><img src="images/egold logo.png" alt="egold-logo" style="width: 180px;"></div>
-      <div class="navbar">
-        <nav>
-          <ul>
-            <li class="HideOnMobile"><a class="home" href="#home" style="color: #FFF;"> HOME</a></li>
-            <li class="HideOnMobile"><a class="nav" href="#about" style="color: #FFF;"> ABOUT</a></li>
-            <li class="HideOnMobile"><a class="nav" href="#service" style="color: #FFF;"> SERVICE</a></li>
-            <li class="HideOnMobile"><a href="#contact" style="color: #ffffff;"> CONTACT</a></li>
-            <li class="HideOnMobile"><a href="#feedback"><span style="background-color: rgb(13, 111, 175); padding: 10px; color: #FFF; border-radius: 8px;">FEEDBACK</span></a></li>
-            <li class="menu-btn" onclick=showSidebar() ><a href="#"><i class="fa-solid fa-bars" style="color: #FFF;"></i></a></li>
-          </ul>
-        </nav>
-      </div>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <img src="images/egold logo.png" alt="Egold Technology Logo">
+        </div>
+        
+        <div class="navbar">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#feedback" class="btn">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="menu-btn" onclick="showSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
-    <nav class="sidebar">
-      <ul>
-        <li onclick=hideSidebar()><a href="#" style="font-size: 18px;"><i class="fa-solid fa-xmark"></i></a></li>
-        <li><a href="#home" style="font-size: 18px;"><i class="fa-solid fa-house"></i>  HOME</a></li>
-        <li><a href="#about" style="font-size: 18px;"><i class="fa-solid fa-circle-info"></i>  ABOUT</a></li>
-        <li><a href="#services" style="font-size: 18px;"><i class="fa-solid fa-handshake"></i>  SERVICE</a></li>
-        <li><a href="#contact" style="font-size: 18px;"><i class="fa-solid fa-phone"></i>  CONTACT</a></li>
-        <li><a href="#feedback" style="font-size: 18px;"><i class="fa-solid fa-message"></i>FEEDBACK</a></li>
-       
-      </ul>
-    </nav>
-
-    <!--header ends here-->
-    <!--first section that contains the home page information-->
-
-  
-
-
-<script>
-  let index = 0;
-  function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.style.display = 'flex'
-  }
-  function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'none'
-  }
-</script>
-
-<div id="home" class="container-1">
-  <div class="row">
-     <div class="col-2">
-       <h1 style="text-transform: uppercase;" class="floating-text">
-        BULDING THE FUT<span style="color: rgb(255, 68, 0);">URE</span>, <span style="color: rgb(255, 68, 0);">PROTECTING</span> <br><span style="color: rgb(255, 68, 0);">WHAT</span> MATTERS
-       </h1>
-     <P id="para" class="floating-text">At Egold Technology, we specialize in more than just 
-       construction and maintenance - we create smarter, safer, and more sustainable environments.
-        From designing and building your dream spaces to installing cutting-edge solar systems 
-        and advanced CCTV cameras, we provide innovative solutions that meet today's needs
-         and tomorrow's challenges. Whether you're looking to save on energy costs or 
-         enhance the security of your property, we're your trusted partner every step of the way.
-        With years of expertise, a commitment to quality, and a focus on sustainability, 
-        we transform spaces and safeguard what matters most. Let us power your home, 
-        protect your assets, and build with purpose. Your vision, our innovation. 
-        Lets build, secure, and energize together.. </p>
-
-     <button  class="btn" ><a href="#about" style="text-decoration: none; color: #FFF;">Learn More</a></button>
-     
- </div>
-</div>
-</div>
-<div id="cookiePopup" class="cookie-popup">
-  <span>We use cookies to improve your experience. 
-    <br> "By proceeding, you agree to abide by our <a href="terms.html" style="color: #1a7d8a; text-decoration: none;"> terms </a> and <a href="privacy policy.html" style="color: #1a7d8a; text-decoration: none;">Conditions</a>." 
-  </span>
-  <div class="cookie-buttons">
-      <button onclick="acceptCookies()">Accept</button>
-      <button class="decline" onclick="declineCookies()">Decline</button>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Disable right-click
-        document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
-        });
-
-        // Cookie Popup Logic
-        const cookiePopup = document.getElementById("cookiePopup");
-        if (!localStorage.getItem("cookiesAccepted")) {
-            cookiePopup.style.display = "flex";
-        }
-    });
-    function acceptCookies() {
-        localStorage.setItem("cookiesAccepted", true);
-        document.getElementById("cookiePopup").style.display = "none";
-        alert("Thank you for accepting cookies!\n\nAbout Us:\nAt Egold Technology, we specialize in innovative technology solutions, including security systems, automation, and IT services.\n\nOur Services:\n- Smart Home Automation\n-  INTELLIGENT SECURITY\n- Surveillance and Security Systems\n-  MOTORGIZED GATE CONTROL SYSTEM\n- Renewable Energy Solutions\n\nWhy Choose Us?\nWith years of experience, cutting-edge solutions, and a customer-first approach, we deliver excellence in every project.");
-    }
-    function declineCookies() {
-        document.getElementById("cookiePopup").style.display = "none";
-    }
-</script>
-</div>
-<section id="about" class="aboutSection">
-  <div class="about">
-      <div class="section left fade-in-left">
-          <div class="text-section">
-              <h1 style="margin: 20px;">About Us</h1>
-              <p style="margin: 20px;">
-                  We strive to provide high-quality services with a customer-first approach.
-                  Our dedication to innovation and excellence sets us apart.
-               At Egold Techonology, We are a passionate team dedicated to
-             delivering high-quality products and services. Egold Technology
-              was formed in 2002 as a subsidiary of Oria Usifo Consult and 
-              incorporated in 2018 by renowned Electrical and IT professionals
-               in Nigeria. Egold Technology Principal is an Electrical and Computer 
-               Engineer, System Integrator and a Project Manager with wide knowledge
-                and Experience in the Engineering Practice, Renewable Energy Systems,
-                 Security and ICT. Internationally trained in Surveillance Security 
-                 System and Access control system (ADI- South Africa).
-              </p>
+    
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li onclick="hideSidebar()"><a href="#"><i class="fas fa-times"></i></a></li>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#services"><i class="fas fa-handshake"></i> Services</a></li>
+            <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+            <li><a href="#feedback"><i class="fas fa-comment"></i> Feedback</a></li>
+        </ul>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="floating-text">Building the Future, <span>Protecting</span> What Matters</h1>
+            <p class="floating-text">At Egold Technology, we specialize in creating smarter, safer, and more sustainable environments through innovative construction, solar energy, and security solutions.</p>
+            <a href="#about" class="btn floating-text">Learn More</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
             
-          </div>
-          <div class="image-section">
-           <img src="images/group1.jpg" alt="">
-          </div>
-      </div>
-      <div class="section right fade-in-right">
-          <div class="image-section">
-             <img src="images/A man in a hard hat looking at a tablet _ Premium AI-generated image.jpg" alt="">
-          <div class="text-section">
-              <h1 style="margin: 20px;">Our Vision & Objective</h1>
-              <p style="margin: 20px;"> 
-                  We envision a future where our services empower individuals and businesses
-                  to achieve their full potential through cutting-edge solutions.
-                  <br>Our primary objective is to provide Engineering services, ICT and
-                  security services to organizations and companies in the efficient
-                   application of Engineering Technology. Egold Technology key
-                    activities comprise the supply, design and installation of
-                     all types of Engineering services, Renewable Energy Systems,
-                      ICT, security systems/ accessories and networking. which
-                       include; Project Management, Solar Powered System‐ design 
-                       and installations, Security System, System Integration,
-                        Access Control system, Wireless networks, Structured 
-                        Cabling and UPSinstallation etc.
-              </p>
-             
-          </div>
-      </div>
-  </div>
-  
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-const sections = document.querySelectorAll(".section");
-
-function checkScroll() {
-  sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const triggerBottom = window.innerHeight * 0.85;
-      
-      if (sectionTop < triggerBottom) {
-          section.classList.add("visible");
-      }
-  });
-}
-
-window.addEventListener("scroll", checkScroll);
-checkScroll();
-});
-</script>
-<section id="hero">
-
-
-  <div id="service" class="hero-content">
-      <h1 class="floating-text" style="color: #FFF;">Welcome to Our Services</h1>    
-  <div class="container">
-      <div class="typing-text" id="typingText" style="font-size: 20px;"></div>
-  <script>
-      // Array of different sentences/words for typing
-const phrases = [
-  "Hello, welcome to our website!",
-  "We are happy to have you here.",
-  "Explore our features and services.",
-  "Get in touch with our team!",
-  "Have a great experience!",
-  "Your satisfaction is our priority.",
-" We offer the best solutions for your needs"
-];
-
-let currentPhraseIndex = 0; // Start with the first phrase
-
-// Function to change text content
-function typeText() {
-  const typingElement = document.getElementById('typingText');
-  
-  typingElement.textContent = ''; // Clear the text content
-  
-  // Set a delay based on the current phrase length (optional)
-  const typingSpeed = 150; // Speed of typing each character
-  const phrase = phrases[currentPhraseIndex]; // Get the current phrase
-  
-  let i = 0;
-  
-  // Type the phrase character by character
-  const interval = setInterval(() => {
-      typingElement.textContent += phrase[i];
-      i++;
-      if (i === phrase.length) {
-          clearInterval(interval); // Stop typing once the phrase is done
-          setTimeout(() => {
-              currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Move to the next phrase
-              typeText(); // Restart the typing animation with the next phrase
-          }, 1000); // Wait for 1 second before typing the next phrase
-      }
-  }, typingSpeed);
-}
-
-// Initial call to start the typing effect
-typeText();
-
-  </script>
-      <p></p> <br><br><br> <br>
-      <a href="service.html" target="_self" class="cta-button">Explore Services</a>
-  </div>
-</section>
-
-<section id="services" class="service-body">
-  
-  <div class="service-cards">
-      <div class="service-card">
-        <i class="fa-solid fa-solar-panel" style="color: yellow"></i>
-          <h3>Renewable Energy</h3>
-          <p>Turn your roof into a power source with our top-notch solar installation!
-            Providing expert solar installation services for a sustainable future. Brighten your world with professional solar installation!
-          </p>
-       
-      </div>
-      <div class="service-card">
-        <i class="fa fa-video" style="color: yellow"></i>
-          <h3>Surveillances</h3>
-          <p>Secure your space with our professional CCTV camera installation services!
-            Watch over what matters with our expert CCTV camera installations Your safety, is our priority.
-          </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>Egold Technology was formed in 2002 as a subsidiary of Oria Usifo Consult and incorporated in 2018 by renowned Electrical and IT professionals in Nigeria. Our principal is an Electrical and Computer Engineer, System Integrator and Project Manager with extensive knowledge and experience in Engineering Practice, Renewable Energy Systems, Security and ICT.</p>
+                    <p>Internationally trained in Surveillance Security System and Access control system (ADI- South Africa), we bring world-class expertise to every project we undertake.</p>
+                    <a href="#services" class="btn">Our Services</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="images/group1.jpg" alt="Egold Technology Team">
+                </div>
+            </div>
+            
+            <div class="about-content" style="margin-top: 60px;">
+                <div class="about-image">
+                    <img src="images/A man in a hard hat looking at a tablet _ Premium AI-generated image.jpg" alt="Our Vision">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Our Vision & Objective</h3>
+                    <p>We envision a future where technology and engineering solutions create safer, more efficient, and sustainable environments for businesses and communities.</p>
+                    <p>Our primary objective is to provide Engineering services, ICT and security services to organizations and companies in the efficient application of Engineering Technology. Our key activities comprise the supply, design and installation of all types of Engineering services, Renewable Energy Systems, ICT, security systems/accessories and networking.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive solutions to meet all your technological and engineering needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Renewable Energy</h3>
+                    <p>Turn your roof into a power source with our top-notch solar installation! Providing expert solar installation services for a sustainable future.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Surveillance Systems</h3>
+                    <p>Secure your space with our professional CCTV camera installation services! Watch over what matters with our expert CCTV camera installations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-road-barrier"></i>
+                    <h3>Roadblocker Systems</h3>
+                    <p>We install Road Blockers which can be used very effectively to secure access control points, be final denial barriers or create 'tiger traps' for vehicle searches.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Training</h3>
+                    <p>Unlock your full potential with our expert training services! Whether you're looking to level up your skills or master something new, we've got you covered.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Installations</h3>
+                    <p>From high-tech setups to home appliances, we make installation stress-free! Whether it's your latest gadget or a household essential, we handle it with care and precision.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-screwdriver"></i>
+                    <h3>Repair & Service</h3>
+                    <p>Keep things running smoothly with our expert maintenance services! We fix, maintain, and protect your systems - your go-to maintenance solution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from our satisfied customers about their experiences with Egold Technology</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="images/sarah.jpeg" alt="Sarah O." class="testimonial-img">
+                        <div class="testimonial-info">
+                            <h4>Sarah O.</h4>
+                            <span>Lagos, Nigeria</span>
+                        </div>
+                    </div>
+                    <p>"I can't thank Egold Technology enough for their incredible service! My AC broke down in the middle of a heatwave, and within an hour, a technician was at my door. They were very professional, courteous, and actually cared to make sure that I felt at ease. Strongly recommended!"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="images/tech bro.jpeg" alt="David Ayomike" class="testimonial-img">
+                        <div class="testimonial-info">
+                            <h4>David Ayomike</h4>
+                            <span>Operations Manager, GreenTech Solutions</span>
+                        </div>
+                    </div>
+                    <p>"We ordered CCTV and solar installation, and the process was anything but subpar. The team was very professional, arriving punctually and working hard without disrupting our company. Now we have 24/7 power monitoring and always a power supply. We couldn't be more contented!"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="images/tamuno.jpeg" alt="Tamuno B." class="testimonial-img">
+                        <div class="testimonial-info">
+                            <h4>Tamuno B.</h4>
+                            <span>Project Manager, BuildTech Ltd</span>
+                        </div>
+                    </div>
+                    <p>"We needed a uniform system of automation for our construction project, and the team did their job perfectly. Planning through execution was all smooth. The system works faultlessly, and on-site efficiency and safety have improved. First-rate professional and trustworthy service!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Take a look at some of our completed projects and installations</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-slider" id="gallerySlider">
+                    <div class="gallery-slide">
+                        <img src="images/marque2.jpg" alt="Project 1">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/marque3.jpg" alt="Project 2">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/roof 1.jpg" alt="Project 3">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/marque5.jpg" alt="Project 4">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/marquee7.jpg" alt="Project 5">
+                    </div>
+                </div>
+                
+                <div class="gallery-nav">
+                    <span class="gallery-dot active" onclick="currentSlide(1)"></span>
+                    <span class="gallery-dot" onclick="currentSlide(2)"></span>
+                    <span class="gallery-dot" onclick="currentSlide(3)"></span>
+                    <span class="gallery-dot" onclick="currentSlide(4)"></span>
+                    <span class="gallery-dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-container">
+                <h2 class="section-title" style="color: #fff;">Our Location</h2>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 106 Samphino Road, Yenagoa, Bayelsa</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+2347030842893" style="color: #fff; text-decoration: none;">+234 703 084 2893</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info.egoldtech@gmail.com" style="color: #fff; text-decoration: none;">info.egoldtech@gmail.com</a></p>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.9550682174454!2d6.312823667424549!3d4.923583266791854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a04731cda8ecd%3A0xcab066897bea58d2!2sKpansia%2C%20Nikton%20Rd%2C%20kpansia%2C%20Yenagoa%20569101%2C%20Bayelsa!5e0!3m2!1sen!2sng!4v1740523685255!5m2!1sen!2sng" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <a href="https://www.google.com/maps/dir/?api=1&destination=106+Samphino+Road+Yenagoa+Bayelsa" class="btn" target="_blank">Get Directions</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Feedback Section -->
+    <section class="feedback-section" id="feedback" style="padding: 80px 5%; background: #f9f9f9;">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Send Us Feedback</h2>
+                <p>We value your opinion. Let us know how we can serve you better.</p>
+            </div>
+            
+            <form action="https://formspree.io/f/mjkgwrbd" method="POST" class="feedback-form" style="max-width: 600px; margin: 0 auto;">
+                <div style="margin-bottom: 20px;">
+                    <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <textarea name="feedback" rows="6" placeholder="Your Feedback" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-logo">
+                <img src="images/egold logo.png" alt="Egold Technology Logo" style="height: 50px;">
+                <p>Your trusted partner for innovative engineering and technology solutions.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/18fhab85ga/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@user55362234?_t=ZM-8uY6FRVj5fS&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/erunsdlegend?igsh=OXdweDF5YTBucjhx" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/2347030842893" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-support">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy policy.html">Privacy Policy</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
         
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-road-barrier" style="color: yellow;"></i>
-          <h3>Roadblocker Folding road</h3>
-          <p>we install Road Blockers, which can be used
-            very effectively to secure
-            access control points, be final
-            denial barriers or create &rsquo;tiger
-           traps&rsquo; to allow for vehicle
-            searches</p>
-         
-      </div>
-        <div class="service-card">
-          <i class="fa-solid fa-graduation-cap" style="color: yellow;"></i>
-          <h3>Training</h3>
-            <p>"Unlock your full potential with our 
-              expert training services! Whether
-               you're looking to level up your skills 
-               or master something new, we’ve got you 
-               covered. Let's grow together! 
-                #Training #SkillDevelopment"</p>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Egold Technology. All Rights Reserved.</p>
         </div>
-        <div class="service-card">
-          <i class="fa-solid fa-box-open" style="color: yellow;"></i>
-          <h3>installations</h3>
-            <p>From high-tech setups to home appliances,
-               we make installation stress-free! 
-               Whether it's your latest gadget or a
-                household essential, we handle it with 
-                care and precision. Sit back, relax,
-                 and let the pros do the work! 
-                  #HassleFreeInstallation #TechToHome
-                   #WeMakeItEasy</p>
-        </div>
-        <div class="service-card">
-          <i class="fa-solid fa-screwdriver" style="color: yellow;"></i>
-          <h3>Repair & Service</h3>
-            <p>Keep things running smoothly with our expert maintenance 
-              services! We fix, maintain, and protect your go-to maintenance
-              solution. Keeping everything in top shape with our trusted
-                maintenance services.</p>
-        </div>
+    </footer>
     
-  </div>
-  
-</section>
-<script>
-      // Function to check if an element is in the viewport
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Scroll event listener to apply "visible" class when elements are in the viewport
-window.addEventListener('scroll', function() {
-    const floatingTextElements = document.querySelectorAll('.floating-text');
-    const serviceCardElements = document.querySelectorAll('.service-card');
-
-    // Add "visible" class to floating text elements when they are in the viewport
-    floatingTextElements.forEach(function(element) {
-        if (isElementInViewport(element)) {
-            element.classList.add('visible');
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-text">
+            We use cookies to improve your experience. By proceeding, you agree to abide by our <a href="terms.html">Terms</a> and <a href="privacy policy.html">Conditions</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" onclick="acceptCookies()">Accept</button>
+            <button class="cookie-btn decline" onclick="declineCookies()">Decline</button>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Mobile Sidebar Toggle
+        function showSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-    });
-
-    // Add "visible" class to service cards when they are in the viewport
-    serviceCardElements.forEach(function(element) {
-        if (isElementInViewport(element)) {
-            element.classList.add('visible');
+        
+        function hideSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
-    });
-});
-
- 
-</script>
-<section>
-
-  <script>
-    const shapes = document.querySelectorAll('.shape');
-
-    window.addEventListener('scroll', function() {
-        let scrollPosition = window.scrollY;
-
-        shapes.forEach((shape, index) => {
-            let speed = (index + 1) * 150; // Define how fast each shape moves
-            let translateY = (scrollPosition - (index * 200)) * 0.3; // Vertical movement based on scroll
-            let opacity = 1 - Math.min(1, (scrollPosition - (index * 200)) / 300); // Opacity changes as you scroll
-
-            shape.style.transform = `translateY(${translateY}px)`;
-            shape.style.opacity = opacity;
+        
+        // Close sidebar when clicking on a link
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', hideSidebar);
         });
-    });
-</script>
-<!---<div id="home" class="container-1" style="display: flex; align-items: center; justify-content: flex-start; background-image: url('images/man.jpg'); background-size: cover; background-position: left; height: 80vh; padding: 50px;">
-  <div class="row" style="display: flex; align-items: center; width: 100%; flex-wrap: wrap;">
-    
-    <!-- Image Section (Hidden on Small Screens) -->
-    <!--<div class="col-2 image-container" style="flex: 1;">
-      <img src="images/group2.jpg" alt="Engineering" style="width: 100%; max-width: 500px; height: 140%; display: block; border-radius: 4px;">
-    </div>
-    
-    <!-- Text Content -->
-   <!--- <div class="col-2" style="flex: 2; padding-left: 10px;">
-      <h1 id="head1" class="floating-text" style="text-transform: uppercase; font-size: 25px; transition: transform 0.3s ease-in-out;">
-        "Precision. Innovation. Excellence. Engineering solutions that power the future!"
-      </h1>
-      <p id="para" class="floating-text" style="transition: transform 0.3s ease-in-out; font-size: 16px; line-height: 1.5;">
-        "Engineering the future, one solution at a time! ⚙️🚀 From innovative designs to precision execution, we bring ideas to life with expertise and reliability. Let’s build something great together!"
-      </p>
-    </div>
-
-  </div>
-</div>-->
-
-</section> <div class="container">
-  <h1>What Our Clients Say</h1>
-  <div class="testimonials">
-      <div class="testimonial">
-          <img src="images/sarah.jpeg" alt="Sarah O. image">
-          <div class="testimonial-content">
-              <p>"I can't thank Egold Technology enough for their incredible 
-                service! My AC broke down in the middle of a heatwave, and I 
-                was panicking. I called them, and within an hour, a technician
-                 was at my door. Not only did he fix the problem quickly, but 
-                 he also explained it to me in simple terms so I knew what went
-                  wrong. They were very professional, courteous, and actually 
-                  cared to make sure that I felt at ease. It is not common to
-                   find a company that makes you feel like family, but Egold 
-                   Technology does exactly that. Strongly recommended!"</p>
-              <h3> Sarah O.</h3>
-              <span>Lagos, Nigeria</span>
-          </div>
-      </div>
-      
-      <div class="testimonial">
-          <img src="images/tech bro.jpeg" alt="David Ayomike. image">
-          <div class="testimonial-content">
-              <p>"It matters to us as a business to have security and reliable energy.
-                 We ordered CCTV and solar installation, and the process was anything 
-                 but subpar. The team was very professional, arriving punctually and
-                  working hard without disrupting our company. They heard what we
-                   wanted, recommended the best, and installed everything perfectly.
-                    Now we have a 24/7 power monitoring and always a power supply, 
-                    which saves us lots of electricity. We couldn't be more contented 
-                    with the service—highly recommended!"</p>
-              <h3> David Ayomike.</h3>
-              <span>Operations Manager, GreenTech Solutions</span>
-          </div>
-      </div>
-      
-      <div class="testimonial">
-          <img src="images/tamuno.jpeg" alt="Tamuno B. image">
-          <div class="testimonial-content">
-              <p>"We needed a uniform system of automation for our construction project,
-                 and the team did their job perfectly. Planning through execution was
-                  all smooth. The system works faultlessly, and on-site efficiency and
-                   safety have improved. First-rate professional and trustworthy service!"</p>
-              <h3>Tamuno B.</h3>
-              <span>Project Manager, BuildTech Ltd</span>
-          </div>
-      </div>
-  </div>
-</div>
-<script>
- 
-        document.addEventListener("DOMContentLoaded", function() {
-            const testimonials = document.querySelectorAll(".testimonial");
-            function checkScroll() {
-                testimonials.forEach(testimonial => {
-                    const rect = testimonial.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 50) {
-                        testimonial.style.opacity = 1;
-                        testimonial.style.transform = "translateX(0)";
-                    }
-                });
+        
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('active');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('active');
             }
-            window.addEventListener("scroll", checkScroll);
-            checkScroll();
         });
-  
-</script>
-
-<section id="contact" class="contact">
-  <div class="contact-container">
-      <h2 class="contact-h2" style="color: #FFF; font-size: 30px;">Our L<span><i class="fa fa-earth"></i></span>cation</h2>
-      <p style="text-align: center; ">106 Samphino road Yenagoa Bayelsa</p>
-      <div class="map-container">
-         
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.9550682174454!2d6.312823667424549!3d4.923583266791854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a04731cda8ecd%3A0xcab066897bea58d2!2sKpansia%2C%20Nikton%20Rd%2C%20kpansia%2C%20Yenagoa%20569101%2C%20Bayelsa!5e0!3m2!1sen!2sng!4v1740523685255!5m2!1sen!2sng" style="border:none; border-radius: 8px; width: 350px; height: 350px; margin: auto; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Lagos,Nigeria" class="contact-btn" target="_self">Get Directions</a>
-  </div>
-</section>
-<section class="image-body">
-  <div class="carousel-container">
-      <div class="carousel" id="carousel">
-          <div class="carousel-card "><img src="images/egoldtech.png" alt="Image 1" style="background-color: #333;"></div>
-          <div class="carousel-card "><img src="images/marque2.jpg" alt="Image 2"></div>
-          <div class="carousel-card "><img src="images/marque3.jpg" alt="Image 3"></div>
-          <div class="carousel-card "><img src="images/roof 1.jpg" alt="Image 4"></div>
-          <div class="carousel-card "><img src="images/marque5.jpg" alt="Image 5"></div>
-          <div class="carousel-card "><img src="images/marquee7.jpg" alt="Image "></div>
-          <div class="carousel-card "><img src="images/FB_IMG_1737535256014.jpg" alt="Image 7"></div>
-          <div class="carousel-card "><img src="images/survellance.jpg" alt="Image 8"></div>
-          <div class="carousel-card "><img src="images/cctv camera.jpg" alt="Image 9"></div>
-          <div class="carousel-card "><img src="images/group2.jpg" alt="Image 10"></div>
-          <div class="carousel-card "><img src="images/marque4.jpg" alt="Image 11"></div>
-          <div class="carousel-card "><img src="images/449.jpg" alt="Image 12"></div>
-          <div class="carousel-card "><img src="images/mensolar.jpg" alt="Image 13"></div>
-          <div class="carousel-card "><img src="images/roof 2.jpg" alt="Image 14"></div>
-          <div class="carousel-card "><img src="images/group1.jpg" alt="Image 15"></div>
-          <div class="carousel-card "><img src="images/group3.jpg" alt="Image 16"></div>
-      </div>
-  </div>
-
-  <script>
-   let shuffleIndex = Math.floor(Math.random() * 100);
-      function slideImages() {
-          const carousel = document.getElementById("carousel");
-          const cards = document.querySelectorAll(".carousel-card ");
-          index++;
-          if (index >= cards.length) {
-              index = 0;
-          }
-          const offset = -index * (cards[0].offsetWidth + 20);
-          carousel.style.transform = `translateX(${offset}px)`;
-      }
-      setInterval(slideImages, 3000);
-  </script>
-</section class="image-body">
-
-<footer>
-  <div class="footer-container">
-      <div class="footer-section company-info">
-        <a href="Egoldtech.html"><img style="width: 200px; margin-top: -50px;" src="images/egold logo.png" alt="egold logo"></a>
-          <p>Your trusted partner for automation and digital solutions.</p>
-      </div>
-      <div class="footer-section quick-links">
-          <h3>Quick Links</h3>
-          <ul>
-              <li><a href="#home">HOME</a></li>
-              <li><a href="#about">ABOUT US</a></li>
-              <li><a href="service.html">SERVICE</a></li>
-              
-              <li><a href="#contact">Contact</a></li>
-          </ul>
-      </div>
-      <div class="footer-section support">
-          <h3>Support</h3>
-          <ul>
-              
-              <li><a href="terms.html">Terms & Conditions</a></li>
-              <li><a href="privacy policy.html">Privacy Policy</a></li>
-          </ul>
-      </div>
-      
-      <div class="footer-section ">
-          <h3>Contact Us</h3>
-          <p>Email: info.egoldtech@gmail.com</p>
-          <p>Phone:<a href="tel:07041036598" style="text-decoration: none; color: #1a7d8a;">+2347030842893</a></p>
-          <p>Address: No.106 <span><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.9550682174454!2d6.312823667424549!3d4.923583266791854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a04731cda8ecd%3A0xcab066897bea58d2!2sKpansia%2C%20Nikton%20Rd%2C%20kpansia%2C%20Yenagoa%20569101%2C%20Bayelsa!5e0!3m2!1sen!2sng!4v1740523685255!5m2!1sen!2sng" style="text-decoration: none; color: #FFF;"> Samphino road, Yenagoa Bayelasa state</a></span></p>
-         
-      </div>
-
-      <div class="footer-section newsletter">
-        <h3>send us a feedback</h3>
-        <form action="https://formspree.io/f/mjkgwrbd" method="POST">
-          <div class="newsletter-box">
-            <input type="text" placeholder="Enter your full name" required/>
-            <input type="email" placeholder="Enter your email" required/>
-            <label for="feedback">Comment here</label>
-          <textarea id="feedback" name="feedback" rows="6" style="width: 100%;" placeholder="write your feedback here" required></textarea>
-        <button type="submit" target="_self">Submit</button>
-        </div>
-        </form>
         
-    </div>
-
-      <div class="footer-section .social-media">
-          <h3 style="border-bottom: 1px solid #225b69; width: 150px;">Follow Us</h3>
-          <a href="https://www.facebook.com/share/18fhab85ga/"><i class="fab fa-facebook" style="color: #FFF;"></i></a>
-          <a href="https://www.tiktok.com/@user55362234?_t=ZM-8uY6FRVj5fS&_r=1"><i class="fab fa-tiktok"  style="color: #FFF;"></i></a>
-          <a href="https://www.instagram.com/erunsdlegend?igsh=OXdweDF5YTBucjhx"><i class="fab fa-instagram"  style="color: #FFF;"></i></a>
-      </div>
-  </div>
-  <div class="footer-bottom">
-      <p style="text-align: center;">&copy; 2025 Egold Technolgy. All rights reserved.</p>
-  </div>
-</footer>
-
+        // Back to Top Button
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll Animation
+        function checkScroll() {
+            const elements = document.querySelectorAll('.floating-text, .service-card, .testimonial-card, .section');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // Gallery Slider
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+            const slides = document.querySelectorAll('.gallery-slide');
+            const dots = document.querySelectorAll('.gallery-dot');
+            
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex - 1].style.display = 'block';
+            dots[slideIndex - 1].classList.add('active');
+        }
+        
+        // Auto slide gallery
+        let slideInterval = setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+        
+        // Pause on hover
+        const gallery = document.querySelector('.gallery-container');
+        gallery.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        gallery.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000);
+        });
+        
+        // Cookie Consent
+        document.addEventListener('DOMContentLoaded', function() {
+            // Disable right-click
+            document.addEventListener('contextmenu', function(event) {
+                event.preventDefault();
+            });
+            
+            // Show cookie popup if not accepted
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookiePopup').classList.add('active');
+            }
+        });
+        
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookiePopup').classList.remove('active');
+            alert("Thank you for accepting cookies!\n\nAbout Us:\nAt Egold Technology, we specialize in innovative technology solutions, including security systems, automation, and IT services.\n\nOur Services:\n- Smart Home Automation\n- Intelligent Security\n- Surveillance and Security Systems\n- Motorized Gate Control System\n- Renewable Energy Solutions\n\nWhy Choose Us?\nWith years of experience, cutting-edge solutions, and a customer-first approach, we deliver excellence in every project.");
+        }
+        
+        function declineCookies() {
+            document.getElementById('cookiePopup').classList.remove('active');
+        }
+        
+        // Typing Animation
+        const phrases = [
+            "Hello, welcome to our website!",
+            "We are happy to have you here.",
+            "Explore our features and services.",
+            "Get in touch with our team!",
+            "Have a great experience!",
+            "Your satisfaction is our priority.",
+            "We offer the best solutions for your needs"
+        ];
+        
+        let currentPhraseIndex = 0;
+        const typingElement = document.getElementById('typingText');
+        
+        function typeText() {
+            typingElement.textContent = '';
+            const phrase = phrases[currentPhraseIndex];
+            let i = 0;
+            const typingSpeed = 150;
+            
+            const interval = setInterval(() => {
+                typingElement.textContent += phrase[i];
+                i++;
+                if (i === phrase.length) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                        typeText();
+                    }, 1000);
+                }
+            }, typingSpeed);
+        }
+        
+        // Start typing animation if element exists
+        if (typingElement) {
+            typeText();
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a, .sidebar a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
