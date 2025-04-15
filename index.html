@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+up<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <title>Egold Technology - Construction & Security Solutions</title>
     <link rel="icon" type="images/png" href="images/egoldtech.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -557,7 +557,274 @@
     </div>
     
     <script>
+// Generate floating shapes
+function createFloatingShapes() {
+    const container = document.getElementById('floatingShapes');
+    const colors = ['#1a7d8a', '#0a1f3d', '#0d4e5a'];
+    
+    for (let i = 0; i < 10; i++) {
+        const shape = document.createElement('div');
+        shape.classList.add('shape');
+        
+        // Random properties
+        const size = Math.random() * 200 + 100;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 20 + 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        shape.style.width = `${size}px`;
+        shape.style.height = `${size}px`;
+        shape.style.left = `${posX}%`;
+        shape.style.top = `${posY}%`;
+        shape.style.animationDelay = `${delay}s`;
+        shape.style.animationDuration = `${duration}s`;
+        shape.style.background = color;
+        
+        container.appendChild(shape);
+    }
+}
 
+// Hero Slider
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+    
+    // Auto-rotate slides every 5 seconds
+    setInterval(nextSlide, 5000);
+}
+
+// Theme Toggle
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    if (savedTheme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        if (newTheme === 'dark') {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+}
+
+// Gallery Slider
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+    }
+    
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].classList.add('active');
+}
+
+// Auto slide gallery
+let slideInterval = setInterval(() => {
+    plusSlides(1);
+}, 5000);
+
+// Pause on hover
+const gallery = document.querySelector('.gallery-container');
+gallery.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
+
+gallery.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(() => {
+        plusSlides(1);
+    }, 5000);
+});
+
+// Service Detail Sliders
+function initServiceDetailSliders() {
+    const services = [
+        'renewable-energy',
+        'surveillance-systems',
+        'roadblocker-systems',
+        'training',
+        'installations',
+        'repair-service'
+    ];
+    
+    services.forEach(service => {
+        const slider = document.getElementById(`${service}-slider`);
+        if (slider) {
+            const slides = slider.querySelectorAll('.service-detail-slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-rotate slides every 5 seconds
+            setInterval(nextSlide, 5000);
+        }
+    });
+}
+
+// Show Service Detail
+function showServiceDetail(service) {
+    document.getElementById(`${service}-detail`).classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Hide Service Detail
+function hideServiceDetail() {
+    document.querySelectorAll('.service-detail').forEach(detail => {
+        detail.classList.remove('active');
+    });
+    document.body.style.overflow = 'auto';
+}
+
+// Cookie Consent
+document.addEventListener('DOMContentLoaded', function() {
+    // Disable right-click
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+    
+    // Show cookie popup if not accepted
+    if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookiePopup').classList.add('active');
+    }
+});
+
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookiePopup').classList.remove('active');
+    alert("Thank you for accepting cookies!\n\nAbout Us:\nAt Egold Technology, we specialize in innovative technology solutions, including security systems, automation, and IT services.\n\nOur Services:\n- Smart Home Automation\n- Intelligent Security\n- Surveillance and Security Systems\n- Motorized Gate Control System\n- Renewable Energy Solutions\n\nWhy Choose Us?\nWith years of experience, cutting-edge solutions, and a customer-first approach, we deliver excellence in every project.");
+}
+
+function declineCookies() {
+    document.getElementById('cookiePopup').classList.remove('active');
+}
+
+// Mobile Sidebar Toggle
+function showSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close sidebar when clicking on a link
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', hideSidebar);
+});
+
+// Sticky Header
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    const backToTop = document.getElementById('backToTop');
+    
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        backToTop.classList.add('active');
+    } else {
+        header.classList.remove('scrolled');
+        backToTop.classList.remove('active');
+    }
+});
+
+// Back to Top Button
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Scroll Animation
+function checkScroll() {
+    const elements = document.querySelectorAll('.floating-text, .service-card, .testimonial-card, .section');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
+
+// Mobile bottom nav active link
+const currentPath = window.location.hash || '#home';
+document.querySelector(`.mobile-bottom-nav a[href="${currentPath}"]`).classList.add('active');
+
+// Initialize everything when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    createFloatingShapes();
+    initHeroSlider();
+    initThemeToggle();
+    initServiceDetailSliders();
+    
+    // Mobile bottom nav active link
+    const currentPath = window.location.hash || '#home';
+    document.querySelector(`.mobile-bottom-nav a[href="${currentPath}"]`).classList.add('active');
+});
 </script>
 </body>
 </html>
