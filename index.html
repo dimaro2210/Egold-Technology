@@ -9,12 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
     <title>Egold Technology - Construction & Security Solutions</title>
     <link rel="icon" type="images/png" href="images/egoldtech.png">
-    
-    <!-- Preload important resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-    
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -42,27 +37,58 @@
         </div>
     </header>
     
-    <!-- Mobile Sidebar -->
-    <div class="sidebar" id="sidebar">
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
         <ul>
-            <li onclick="hideSidebar()"><a href="#"><i class="fas fa-times"></i></a></li>
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
             <li><a href="#services"><i class="fas fa-handshake"></i> Services</a></li>
-            <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a></li>
             <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
-            <li><a href="#feedback"><i class="fas fa-comment"></i> Feedback</a></li>
         </ul>
+    </nav>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
     
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="floating-text">Building the Future, <span>Protecting</span> What Matters</h1>
-            <p class="floating-text">At Egold Technology, we specialize in creating smarter, safer, and more sustainable environments through innovative construction, solar energy, and security solutions.</p>
-            <a href="#about" class="btn floating-text">Learn More</a>
+    <!-- Floating Shapes Background -->
+    <div class="floating-shapes" id="floatingShapes"></div>
+    
+    <!-- Hero Slider -->
+    <div class="hero-slider" id="heroSlider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="background-image: url('images/mensolar.jpg')">
+            <div class="hero-content">
+                <h1>Building the Future with <span>Solar Energy</span></h1>
+                <p>Harness the power of the sun with our cutting-edge solar solutions for homes and businesses.</p>
+                <a href="#services" class="btn">Explore Solutions</a>
+            </div>
         </div>
-    </section>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: url('images/construction\ safety\ helment.jpg')">
+            <div class="hero-content">
+                <h1>Advanced <span>Security</span> Systems</h1>
+                <p>Protect what matters most with our state-of-the-art surveillance and security solutions.</p>
+                <a href="#services" class="btn">Discover Options</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image: url('images/roof\ 1.jpg')">
+            <div class="hero-content">
+                <h1>Innovative <span>Construction</span> Solutions</h1>
+                <p>From design to completion, we deliver quality construction services with precision.</p>
+                <a href="#services" class="btn">View Projects</a>
+            </div>
+        </div>
+    </div>
     
     <!-- About Section -->
     <section class="about-section" id="about">
@@ -108,44 +134,236 @@
             </div>
             
             <div class="services-grid">
+                <!-- Renewable Energy Card -->
                 <div class="service-card">
                     <i class="fas fa-solar-panel"></i>
                     <h3>Renewable Energy</h3>
                     <p>Turn your roof into a power source with our top-notch solar installation! Providing expert solar installation services for a sustainable future.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('renewable-energy')">Explore More</a>
                 </div>
                 
+                <!-- Surveillance Systems Card -->
                 <div class="service-card">
                     <i class="fas fa-video"></i>
                     <h3>Surveillance Systems</h3>
                     <p>Secure your space with our professional CCTV camera installation services! Watch over what matters with our expert CCTV camera installations.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('surveillance-systems')">Explore More</a>
                 </div>
                 
+                <!-- Roadblocker Systems Card -->
                 <div class="service-card">
                     <i class="fas fa-road-barrier"></i>
                     <h3>Roadblocker Systems</h3>
                     <p>We install Road Blockers which can be used very effectively to secure access control points, be final denial barriers or create 'tiger traps' for vehicle searches.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('roadblocker-systems')">Explore More</a>
                 </div>
                 
+                <!-- Training Card -->
                 <div class="service-card">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Training</h3>
                     <p>Unlock your full potential with our expert training services! Whether you're looking to level up your skills or master something new, we've got you covered.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('training')">Explore More</a>
                 </div>
                 
+                <!-- Installations Card -->
                 <div class="service-card">
                     <i class="fas fa-box-open"></i>
                     <h3>Installations</h3>
                     <p>From high-tech setups to home appliances, we make installation stress-free! Whether it's your latest gadget or a household essential, we handle it with care and precision.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('installations')">Explore More</a>
                 </div>
                 
+                <!-- Repair & Service Card -->
                 <div class="service-card">
                     <i class="fas fa-screwdriver"></i>
                     <h3>Repair & Service</h3>
                     <p>Keep things running smoothly with our expert maintenance services! We fix, maintain, and protect your systems - your go-to maintenance solution.</p>
+                    <a href="#" class="explore-more" onclick="showServiceDetail('repair-service')">Explore More</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Service Detail Pages -->
+    <!-- Renewable Energy Detail -->
+    <div class="service-detail" id="renewable-energy-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="renewable-energy-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/solar1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/solar2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/solar3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Renewable Energy Solutions</h2>
+                <p>At Egold Technology, we specialize in designing and installing cutting-edge solar energy systems that help you reduce your carbon footprint while saving on energy costs. Our team of certified solar experts will assess your energy needs and design a customized solution that maximizes efficiency and return on investment.</p>
+                
+                <p>We offer complete solar solutions including:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>Residential solar panel installations</li>
+                    <li>Commercial solar energy systems</li>
+                    <li>Solar water heating solutions</li>
+                    <li>Solar battery storage systems</li>
+                    <li>Solar system maintenance and repair</li>
+                </ul>
+                
+                <p>Our solar installations come with industry-leading warranties and our commitment to quality ensures your system will perform optimally for years to come. We use only the highest quality components from trusted manufacturers to guarantee reliability and efficiency.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Surveillance Systems Detail -->
+    <div class="service-detail" id="surveillance-systems-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="surveillance-systems-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/cctv1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/cctv2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/cctv3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Surveillance Security Systems</h2>
+                <p>Our comprehensive surveillance solutions provide round-the-clock monitoring and protection for your property. We design and install customized CCTV systems tailored to your specific security needs, whether for residential, commercial, or industrial applications.</p>
+                
+                <p>Our surveillance services include:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>High-definition CCTV camera installation</li>
+                    <li>IP camera systems with remote viewing</li>
+                    <li>Night vision and thermal imaging cameras</li>
+                    <li>Video analytics and motion detection</li>
+                    <li>Cloud-based video storage solutions</li>
+                    <li>System integration with access control</li>
+                </ul>
+                
+                <p>We use only industry-leading equipment that delivers crystal-clear footage day and night, with options for weatherproof and vandal-resistant cameras for outdoor installations. Our systems can be accessed remotely via smartphone or computer, giving you peace of mind wherever you are.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Roadblocker Systems Detail -->
+    <div class="service-detail" id="roadblocker-systems-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="roadblocker-systems-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/roadblocker1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/roadblocker2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/roadblocker3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Roadblocker Security Systems</h2>
+                <p>Our high-security roadblocker systems provide ultimate protection for sensitive areas, government buildings, corporate headquarters, and other high-risk locations. These heavy-duty barriers are designed to stop unauthorized vehicle access while maintaining smooth traffic flow for authorized vehicles.</p>
+                
+                <p>Our roadblocker solutions include:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>Hydraulic and electro-mechanical road blockers</li>
+                    <li>Crash-rated barriers for high-security applications</li>
+                    <li>Automatic license plate recognition integration</li>
+                    <li>Remote control and monitoring systems</li>
+                    <li>Emergency override features</li>
+                    <li>Custom designs for specific site requirements</li>
+                </ul>
+                
+                <p>Our roadblocker systems are engineered to withstand extreme conditions and provide reliable operation 24/7. We conduct thorough site assessments to determine the optimal placement and configuration for maximum security effectiveness.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Training Detail -->
+    <div class="service-detail" id="training-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="training-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/training1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/training2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/training3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Professional Training Programs</h2>
+                <p>Our comprehensive training programs are designed to equip individuals and organizations with the skills and knowledge needed to excel in today's technology-driven world. We offer both standard curriculum and customized training solutions tailored to your specific needs.</p>
+                
+                <p>Our training offerings include:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>Solar energy system installation and maintenance</li>
+                    <li>CCTV and security system operation</li>
+                    <li>Access control system administration</li>
+                    <li>Network infrastructure and cabling</li>
+                    <li>Renewable energy technology</li>
+                    <li>Customized corporate training programs</li>
+                </ul>
+                
+                <p>All our training programs combine theoretical knowledge with hands-on practical sessions, ensuring participants gain real-world skills they can immediately apply. Our instructors are industry veterans with years of field experience, providing insights you won't find in textbooks.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Installations Detail -->
+    <div class="service-detail" id="installations-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="installations-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/installation1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/installation2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/installation3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Professional Installation Services</h2>
+                <p>Our expert installation services ensure your systems are set up correctly the first time, with optimal performance and reliability. We handle everything from initial planning to final testing, taking the stress out of your technology deployments.</p>
+                
+                <p>Our installation services include:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>Turnkey solar energy system installations</li>
+                    <li>Complete security system deployments</li>
+                    <li>Structured cabling and network infrastructure</li>
+                    <li>Access control system implementation</li>
+                    <li>Home and office automation setups</li>
+                    <li>System integration and configuration</li>
+                </ul>
+                
+                <p>We pride ourselves on clean, professional installations with attention to detail that makes all the difference. Our technicians are trained to work efficiently while maintaining the highest standards of quality and safety. Every installation includes thorough testing and client training to ensure you get the most from your new systems.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Repair & Service Detail -->
+    <div class="service-detail" id="repair-service-detail">
+        <div class="section-container">
+            <div class="service-detail-slider" id="repair-service-slider">
+                <div class="service-detail-slide active" style="background-image: url('images/repair1.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/repair2.jpg')"></div>
+                <div class="service-detail-slide" style="background-image: url('images/repair3.jpg')"></div>
+            </div>
+            
+            <div class="service-detail-content">
+                <h2>Repair & Maintenance Services</h2>
+                <p>Keep your systems running at peak performance with our comprehensive repair and maintenance services. Our skilled technicians can diagnose and resolve issues quickly, minimizing downtime and ensuring your systems remain reliable and effective.</p>
+                
+                <p>Our repair and maintenance services include:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px;">
+                    <li>Solar system troubleshooting and repair</li>
+                    <li>CCTV and security system maintenance</li>
+                    <li>Access control system servicing</li>
+                    <li>Preventive maintenance programs</li>
+                    <li>Emergency repair services</li>
+                    <li>System upgrades and optimization</li>
+                </ul>
+                
+                <p>We offer flexible service contracts tailored to your specific needs, from one-time repairs to comprehensive annual maintenance plans. Our proactive approach helps identify potential issues before they become problems, saving you time and money in the long run. All our work is backed by a satisfaction guarantee.</p>
+                
+                <a href="#" class="back-btn" onclick="hideServiceDetail()"><i class="fas fa-arrow-left"></i> Back to Services</a>
+            </div>
+        </div>
+    </div>
     
     <!-- Testimonials Section -->
     <section class="testimonials-section" id="testimonials">
@@ -252,24 +470,24 @@
     </section>
     
     <!-- Feedback Section -->
-    <section class="feedback-section" id="feedback" style="padding: 80px 5%; background: #f9f9f9;">
+    <section class="feedback-section" id="feedback">
         <div class="section-container">
             <div class="section-title">
                 <h2>Send Us Feedback</h2>
                 <p>We value your opinion. Let us know how we can serve you better.</p>
             </div>
             
-            <form action="https://formspree.io/f/mjkgwrbd" method="POST" class="feedback-form" style="max-width: 600px; margin: 0 auto;">
-                <div style="margin-bottom: 20px;">
-                    <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+            <form action="https://formspree.io/f/mjkgwrbd" method="POST" class="feedback-container">
+                <div>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 
-                <div style="margin-bottom: 20px;">
-                    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                <div>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 
-                <div style="margin-bottom: 20px;">
-                    <textarea name="feedback" rows="6" placeholder="Your Feedback" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                <div>
+                    <textarea name="feedback" placeholder="Your Feedback" required></textarea>
                 </div>
                 
                 <button type="submit" class="btn" style="width: 100%;">Submit Feedback</button>
@@ -338,218 +556,8 @@
         </div>
     </div>
     
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    
     <script>
-        // Mobile Sidebar Toggle
-        function showSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function hideSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close sidebar when clicking on a link
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', hideSidebar);
-        });
-        
-        // Sticky Header
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                backToTop.classList.add('active');
-            } else {
-                header.classList.remove('scrolled');
-                backToTop.classList.remove('active');
-            }
-        });
-        
-        // Back to Top Button
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Scroll Animation
-        function checkScroll() {
-            const elements = document.querySelectorAll('.floating-text, .service-card, .testimonial-card, .section');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
-        
-        // Gallery Slider
-        let slideIndex = 1;
-        showSlides(slideIndex);
-        
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-        
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-        
-        function showSlides(n) {
-            let i;
-            const slides = document.querySelectorAll('.gallery-slide');
-            const dots = document.querySelectorAll('.gallery-dot');
-            
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-            
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = 'none';
-            }
-            
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active');
-            }
-            
-            slides[slideIndex - 1].style.display = 'block';
-            dots[slideIndex - 1].classList.add('active');
-        }
-        
-        // Auto slide gallery
-        let slideInterval = setInterval(() => {
-            plusSlides(1);
-        }, 5000);
-        
-        // Pause on hover
-        const gallery = document.querySelector('.gallery-container');
-        gallery.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        gallery.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(() => {
-                plusSlides(1);
-            }, 5000);
-        });
-        
-        // Cookie Consent
-        document.addEventListener('DOMContentLoaded', function() {
-            // Disable right-click
-            document.addEventListener('contextmenu', function(event) {
-                event.preventDefault();
-            });
-            
-            // Show cookie popup if not accepted
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookiePopup').classList.add('active');
-            }
-        });
-        
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookiePopup').classList.remove('active');
-            alert("Thank you for accepting cookies!\n\nAbout Us:\nAt Egold Technology, we specialize in innovative technology solutions, including security systems, automation, and IT services.\n\nOur Services:\n- Smart Home Automation\n- Intelligent Security\n- Surveillance and Security Systems\n- Motorized Gate Control System\n- Renewable Energy Solutions\n\nWhy Choose Us?\nWith years of experience, cutting-edge solutions, and a customer-first approach, we deliver excellence in every project.");
-        }
-        
-        function declineCookies() {
-            document.getElementById('cookiePopup').classList.remove('active');
-        }
-        
-        // Typing Animation
-        const phrases = [
-            "Hello, welcome to our website!",
-            "We are happy to have you here.",
-            "Explore our features and services.",
-            "Get in touch with our team!",
-            "Have a great experience!",
-            "Your satisfaction is our priority.",
-            "We offer the best solutions for your needs"
-        ];
-        
-        let currentPhraseIndex = 0;
-        const typingElement = document.getElementById('typingText');
-        
-        function typeText() {
-            typingElement.textContent = '';
-            const phrase = phrases[currentPhraseIndex];
-            let i = 0;
-            const typingSpeed = 150;
-            
-            const interval = setInterval(() => {
-                typingElement.textContent += phrase[i];
-                i++;
-                if (i === phrase.length) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                        typeText();
-                    }, 1000);
-                }
-            }, typingSpeed);
-        }
-        
-        // Start typing animation if element exists
-        if (typingElement) {
-            typeText();
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Active link highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a, .sidebar a');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+
+</script>
 </body>
 </html>
