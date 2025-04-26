@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +14,7 @@
 </head>
 
 <body>
-    <<!-- Header -->
+    <!-- Header -->
     <header id="header">
         <div class="logo">
             <img src="images/egold logo.png" alt="Egold Technology Logo">
@@ -27,10 +28,12 @@
                     <li><a href="service.html">Services</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="gallery.html" class="btn">Gallery</a></li>
+                    <li><a href="#feedback" class="btn">Feedback</a></li>
                 </ul>
             </nav>
         </div>
+        
+        
     </header>
     
     <!-- Mobile Bottom Navigation -->
@@ -56,56 +59,36 @@
     <!-- Floating Shapes Background -->
     <div class="floating-shapes" id="floatingShapes"></div>
     
-    <!-- Rest of your existing HTML content remains the same until the gallery section -->
-    
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="section-container">
-            <div class="section-title">
-                <h2>Our Projects</h2>
-                <p>Take a look at some of our completed projects and installations</p>
-            </div>
-            
-            <div class="gallery-container">
-                <div class="gallery-slider" id="gallerySlider">
-                    <div class="gallery-slide">
-                        <img src="images/marque2.jpg" alt="Project 1">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/marque3.jpg" alt="Project 2">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/roof 1.jpg" alt="Project 3">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/marque5.jpg" alt="Project 4">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/marquee7.jpg" alt="Project 5">
-                    </div>
-                </div>
-                
-                <div class="gallery-nav">
-                    <span class="gallery-dot active" onclick="currentSlide(1)"></span>
-                    <span class="gallery-dot" onclick="currentSlide(2)"></span>
-                    <span class="gallery-dot" onclick="currentSlide(3)"></span>
-                    <span class="gallery-dot" onclick="currentSlide(4)"></span>
-                    <span class="gallery-dot" onclick="currentSlide(5)"></span>
-                </div>
-                
-                <a href="gallery.html" class="btn gallery-btn">View Full Gallery</a>
+    <!-- Hero Slider -->
+    <div class="hero-slider" id="heroSlider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="background-image: url('images/mensolar.jpg')">
+            <div class="hero-content">
+                <h1>Building the Future with <span>Solar Energy</span></h1>
+                <p>Harness the power of the sun with our cutting-edge solar solutions for homes and businesses.</p>
+                <a href="#services" class="btn">Explore Solutions</a>
             </div>
         </div>
-    </section>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: url('images/construction\ safety\ helment.jpg')">
+            <div class="hero-content">
+                <h1>Advanced <span>Security</span> Systems</h1>
+                <p>Protect what matters most with our state-of-the-art surveillance and security solutions.</p>
+                <a href="#services" class="btn">Discover Options</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image: url('images/roof\ 1.jpg')">
+            <div class="hero-content">
+                <h1>Innovative <span>Construction</span> Solutions</h1>
+                <p>From design to completion, we deliver quality construction services with precision.</p>
+                <a href="#services" class="btn">View Projects</a>
+            </div>
+        </div>
+    </div>
     
-    <!-- Rest of your existing HTML content remains the same -->
-    
-    <!-- Remove the cookie popup section entirely -->
-    
-    <script>
-    // Remove all cookie-related functions from the script
-    // Keep all other JavaScript functions except those related to cookies and mobile menu button
-    </script>
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="section-container">
@@ -446,7 +429,7 @@
                         <img src="images/roof 1.jpg" alt="Project 3">
                     </div>
                     <div class="gallery-slide">
-                        <img src="images/marque5.jpg" alt="Project 4">
+                        <img src="images/marque4.jpg" alt="Project 4">
                     </div>
                     <div class="gallery-slide">
                         <img src="images/marquee7.jpg" alt="Project 5">
@@ -748,28 +731,6 @@ function hideServiceDetail() {
     document.body.style.overflow = 'auto';
 }
 
-// Cookie Consent
-document.addEventListener('DOMContentLoaded', function() {
-    // Disable right-click
-    document.addEventListener('contextmenu', function(event) {
-        event.preventDefault();
-    });
-    
-    // Show cookie popup if not accepted
-    if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookiePopup').classList.add('active');
-    }
-});
-
-function acceptCookies() {
-    localStorage.setItem('cookiesAccepted', 'true');
-    document.getElementById('cookiePopup').classList.remove('active');
-    alert("Thank you for accepting cookies!\n\nAbout Us:\nAt Egold Technology, we specialize in innovative technology solutions, including security systems, automation, and IT services.\n\nOur Services:\n- Smart Home Automation\n- Intelligent Security\n- Surveillance and Security Systems\n- Motorized Gate Control System\n- Renewable Energy Solutions\n\nWhy Choose Us?\nWith years of experience, cutting-edge solutions, and a customer-first approach, we deliver excellence in every project.");
-}
-
-function declineCookies() {
-    document.getElementById('cookiePopup').classList.remove('active');
-}
 
 // Mobile Sidebar Toggle
 function showSidebar() {
