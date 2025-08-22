@@ -1,1 +1,2476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/egoldtech.png">
+    <title>Egold Technology Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #3b82f6;
+            --accent: #60a5fa;
+            --success: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f9fafb;
+            --bg-secondary: #ffffff;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --footer-bg: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
 
+        .dark-mode {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #60a5fa;
+            --accent: #93c5fd;
+            --text: #f3f4f6;
+            --text-light: #d1d5db;
+            --bg: #111827;
+            --bg-secondary: #1f2937;
+            --card-bg: #1a2435;
+            --header-bg: rgba(17, 24, 39, 0.98);
+            --footer-bg: #0f172a;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Page Container */
+        .page-container {
+            display: block;
+        }
+
+        .course-page {
+            display: none;
+            padding: 7rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .logo-loader {
+            width: 120px;
+            height: 120px;
+            animation: pulse 2s infinite ease-in-out;
+            margin-bottom: 1rem;
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background: var(--header-bg);
+            box-shadow: 0 4px 20px var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px var(--shadow);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(107, 114, 128, 0.9) 0%, rgba(75, 85, 99, 0.9) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80') center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        .course-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .course-icon {
+            position: absolute;
+            bottom: -25px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+
+        .course-content {
+            padding: 2.5rem 1.5rem 1.5rem;
+        }
+
+        .course-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .course-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .course-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+        }
+
+        .course-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d1d5db;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
+        /* Modal Styles */
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-30px);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .role-selection {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .role-button {
+            flex: 1;
+            min-width: 120px;
+            padding: 1.5rem;
+            background: var(--bg);
+            border: 2px solid var(--bg-secondary);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .role-button:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .role-button.active {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .role-button i {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .role-button h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--bg-secondary);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .progress-step.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .progress-step.completed {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--bg-secondary);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--bg);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-button.next {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-button.next:hover {
+            background: var(--primary-dark);
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Contact Options Modal */
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--bg);
+            border: 2px solid var(--bg-secondary);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .contact-button:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-button i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        .contact-button div {
+            flex: 1;
+        }
+
+        .contact-button h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .contact-button p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Course Detail Pages */
+        .course-detail-page {
+            padding: 7rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: var(--bg);
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            background: var(--bg-secondary);
+            transform: translateX(-5px);
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        .course-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .course-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .course-header p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .overview-box {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .overview-box h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .objectives-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .objectives-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .objective-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .objective-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .objective-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .modules-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .modules-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .module {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .module:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .module h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .module-content {
+            padding-left: 2rem;
+        }
+
+        .module-content ul {
+            list-style-type: none;
+        }
+
+        .module-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            line-height: 1.6;
+        }
+
+        .module-content li:before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .case-study, .exercises {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .case-study h2, .exercises h2 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .case-study p, .exercises ul {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .exercises ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .exercises li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .exercises li:before {
+            content: '▸';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .secondary-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--bg);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px var(--shadow);
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow);
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: var(--transition);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Floating text animation */
+        .float-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .float-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3D hover effect for cards */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--header-bg);
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 10px 15px var(--shadow);
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                border-bottom: 1px solid var(--bg-secondary);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .role-selection {
+                flex-direction: column;
+            }
+
+            .contact-options {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-detail-page {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .courses, .about {
+                padding: 3rem 1rem;
+            }
+
+            .modal {
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .secondary-button, .primary-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <!-- Egold logo would be loaded here -->
+            <div class="logo-loader">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#2563eb" opacity="0.7"/>
+                    <text x="50" y="58" text-anchor="middle" fill="white" font-size="16" font-weight="bold">EGOLD</text>
+                </svg>
+            </div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                 <img src="images/egold logo.png" alt="Egold Technology Logo" style="width: 80px;">
+             
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-link" data-target="home">Home</a>
+                <a href="#" class="nav-link" data-target="courses">Courses</a>
+                <a href="#" class="nav-link" data-target="about">About</a>
+                <a href="#" class="nav-link" data-target="contact">Contact</a>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="page-container" id="home-page">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Empowering Your Tech Future</h1>
+                <p>Master in-demand technology skills with our comprehensive training programs. From solar installation to web development, we provide hands-on learning experiences to launch your career in 2025.</p>
+                <a href="#courses" class="cta-button">Explore Courses</a>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="courses" id="courses">
+            <h2 class="section-title">Our 2025 Training Programs</h2>
+            
+            <div class="courses-grid">
+                <!-- Solar Installation -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Solar Installation</h3>
+                        <p>Learn to design, install, and maintain solar power systems for sustainable energy solutions.</p>
+                        <a href="#" class="course-button" data-course="solar">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Web Development</h3>
+                        <p>Build responsive websites and web applications using HTML, CSS, JavaScript and modern frameworks.</p>
+                        <a href="#" class="course-button" data-course="webdev">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Phone Repair -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1598327105854-c8674faddf74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Phone Repair</h3>
+                        <p>Gain practical skills in diagnosing and repairing various smartphone hardware and software issues.</p>
+                        <a href="#" class="course-button" data-course="phonerepair">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Cinematography -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1545239351-ef35f43d514b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Cinematography</h3>
+                        <p>Learn the art of visual storytelling through camera operation, lighting, composition, and editing.</p>
+                        <a href="#" class="course-button" data-course="cinematography">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- CCTV Installation -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1594122230682-6d5c5f2fce61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>CCTV Installation</h3>
+                        <p>Master security system installation, configuration, and troubleshooting for residential and commercial applications.</p>
+                        <a href="#" class="course-button" data-course="cctv">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>Why Choose Egold Technology Academy?</h2>
+                    <p>At Egold Technology Academy, we're committed to providing high-quality, hands-on training that prepares you for real-world challenges. Our courses are designed by industry experts with years of practical experience.</p>
+                    <p>We focus on project-based learning, ensuring that you not only understand the theory but can also apply your knowledge to solve practical problems.</p>
+                    <p>Our state-of-the-art labs and small class sizes guarantee personalized attention and ample practice time with the latest tools and technologies.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Egold Academy Students">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Course Detail Pages -->
+    <!-- CCTV Installation -->
+    <div id="cctv-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>CCTV Installation Course</h1>
+            <p>Master the skills needed to design, install, and maintain CCTV systems for residential and commercial security applications.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>CCTV (Closed-Circuit Television) is used for security, surveillance, and monitoring. Mastering CCTV installation gives you both a personal and business opportunity in today's security-conscious world.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Understand CCTV Systems</h3>
+                    <p>Learn about different types of CCTV systems and their applications</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Identify Tools & Equipment</h3>
+                    <p>Recognize the tools and components needed for installation</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Perform Installation</h3>
+                    <p>Execute a complete CCTV system installation from start to finish</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Configure Remote Access</h3>
+                    <p>Set up systems for remote monitoring and access</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Troubleshoot Issues</h3>
+                    <p>Diagnose and fix common CCTV system problems</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction to CCTV</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>What is CCTV and how it works (camera → DVR/NVR → monitor)</li>
+                        <li>Types of CCTV systems: Analog CCTV (DVR based), IP CCTV (NVR based, network cameras)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 2: Tools & Equipment</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>CCTV camera types: dome, bullet, PTZ</li>
+                        <li>DVR/NVR recorder</li>
+                        <li>Coaxial/ethernet cables, connectors (BNC, RJ45)</li>
+                        <li>Power supply units</li>
+                        <li>Monitor</li>
+                        <li>Basic tools: drill, tester, crimping tool</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 3: Installation Basics</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Camera placement (avoid backlighting, ensure coverage)</li>
+                        <li>Running cables (concealed vs open)</li>
+                        <li>Connecting to DVR/NVR</li>
+                        <li>Powering cameras</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-sliders-h"></i> Module 4: Configuration</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>DVR/NVR setup (IP address, date/time)</li>
+                        <li>Remote access (mobile app, port forwarding)</li>
+                        <li>Testing and troubleshooting (no signal, unclear image)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a 4-camera DVR kit at home before going commercial.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="cctv">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Solar Installation -->
+    <div id="solar-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Solar Installation Course</h1>
+            <p>Master the skills needed to design, install, and maintain solar power systems for residential and commercial applications.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Solar energy is a clean, renewable source, widely used in homes, businesses, and rural electrification.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-sun"></i>
+                    <h3>Understand Solar Systems</h3>
+                    <p>Learn how solar energy systems work and their components</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Identify Components</h3>
+                    <p>Recognize all components of a solar power system</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Install Systems</h3>
+                    <p>Install a complete off-grid solar system</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Ensure Safety</h3>
+                    <p>Implement safety measures and maintenance procedures</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>How solar works (sunlight → solar panel → charge controller → battery → inverter → AC load)</li>
+                        <li>Types of systems: Off-grid, On-grid, Hybrid</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-solar-panel"></i> Module 2: Components</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Solar panels (mono vs polycrystalline)</li>
+                        <li>Charge controller (PWM vs MPPT)</li>
+                        <li>Batteries (lead-acid, lithium)</li>
+                        <li>Inverter</li>
+                        <li>Mounting structures</li>
+                        <li>Safety gear</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 3: Installation Process</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Site survey (roof angle, sunlight hours)</li>
+                        <li>Mounting panels</li>
+                        <li>Wiring: Panels → charge controller, Controller → battery, Battery → inverter → load</li>
+                        <li>Grounding & surge protection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 4: Maintenance</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Cleaning panels</li>
+                        <li>Checking battery health</li>
+                        <li>Monitoring system performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Begin with a small 1kVA system (1–2 panels, 1 battery) to learn hands-on.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="solar">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Web Development -->
+    <div id="webdev-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Web Development Course</h1>
+            <p>Learn to build responsive websites and web applications using HTML, CSS, JavaScript and modern frameworks.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Web development is the backbone of the digital world. Websites are needed by businesses, schools, NGOs, and individuals.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Understand Web Fundamentals</h3>
+                    <p>Learn how the web works and essential tools</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Build Web Pages</h3>
+                    <p>Create structured web pages using HTML</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Design Websites</h3>
+                    <p>Style websites with CSS and make them responsive</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Add Interactivity</h3>
+                    <p>Implement functionality with JavaScript</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Publish Websites</h3>
+                    <p>Deploy websites to live servers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Getting Started</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>How the web works (browser, server, hosting)</li>
+                        <li>Tools needed: text editor (VS Code), browser (Chrome/Firefox)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-code"></i> Module 2: HTML (Structure)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Basic tags: &lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, &lt;div&gt;</li>
+                        <li>Building your first page</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-paint-brush"></i> Module 3: CSS (Design)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Selectors, colors, fonts, borders, backgrounds</li>
+                        <li>Responsive design with media queries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 4: JavaScript (Interaction)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Variables, functions, events (onclick, onsubmit)</li>
+                        <li>Simple DOM manipulations (change text, hide/show)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cloud-upload-alt"></i> Module 5: Publishing</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Git & GitHub basics</li>
+                        <li>Free hosting: GitHub Pages, Netlify, Vercel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a portfolio website showing your skills and grow from there.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="webdev">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Phone Repair -->
+    <div id="phonerepair-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Phone Repair Course</h1>
+            <p>Gain practical skills in diagnosing and repairing various smartphone hardware and software issues.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Smartphones are essential; phone repair is a profitable skill in every community.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-mobile"></i>
+                    <h3>Understand Phone Anatomy</h3>
+                    <p>Learn about phone components and common issues</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Identify Tools</h3>
+                    <p>Recognize the tools needed for phone repair</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Perform Hardware Repairs</h3>
+                    <p>Execute common hardware repairs</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Perform Software Repairs</h3>
+                    <p>Fix common software issues</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Phone anatomy: motherboard, battery, screen, charging port, camera</li>
+                        <li>Common issues (won't charge, broken screen, water damage)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 2: Tools & Equipment</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Screwdrivers (Torx, Phillips)</li>
+                        <li>Multimeter</li>
+                        <li>Soldering iron & hot air station</li>
+                        <li>Plastic prying tools</li>
+                        <li>Magnifying glass</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-wrench"></i> Module 3: Basic Repairs</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Replacing batteries</li>
+                        <li>Screen replacement</li>
+                        <li>Charging port replacement</li>
+                        <li>Testing with multimeter</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-desktop"></i> Module 4: Software Repairs</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Flashing firmware</li>
+                        <li>Removing FRP locks</li>
+                        <li>Resetting phones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Practice on old or dead phones before handling customer devices.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="phonerepair">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Cinematography -->
+    <div id="cinematography-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Cinematography Course</h1>
+            <p>Learn the art of visual storytelling through camera operation, lighting, composition, and editing.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Cinematography is the art of storytelling through moving images. It combines creativity and technical skill.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Understand Camera Operation</h3>
+                    <p>Learn about different camera types and settings</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Master Composition</h3>
+                    <p>Learn framing, composition and lighting techniques</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Record Quality Audio</h3>
+                    <p>Learn to capture clear audio for videos</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-edit"></i>
+                    <h3>Edit Videos Professionally</h3>
+                    <p>Learn professional video editing techniques</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Master Storytelling</h3>
+                    <p>Learn to tell compelling stories through video</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Difference between videography & cinematography</li>
+                        <li>Understanding camera types: DSLR, mirrorless, smartphone</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-camera"></i> Module 2: Basics of Shooting</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Camera settings: ISO, shutter speed, aperture</li>
+                        <li>Framing & composition (rule of thirds, leading lines)</li>
+                        <li>Lighting basics (natural vs artificial)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-microphone"></i> Module 3: Audio</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Importance of good sound</li>
+                        <li>External mics vs inbuilt mic</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-edit"></i> Module 4: Editing</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Software: CapCut, Premiere Pro, DaVinci Resolve</li>
+                        <li>Basics: cutting, transitions, color grading</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-book-open"></i> Module 5: Storytelling</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Planning shots with storyboards</li>
+                        <li>Shooting sequences (wide → medium → close-up)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a short 1-minute video project using your phone, then upgrade to pro gear.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="cinematography">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registrationModal">
+        <div class="modal">
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 class="modal-title">Register for Course</h2>
+            
+            <div class="role-selection">
+                <div class="role-button" data-role="student">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student</h3>
+                    <p>I want to learn</p>
+                </div>
+                <div class="role-button" data-role="tutor">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Tutor</h3>
+                    <p>I want to teach</p>
+                </div>
+            </div>
+            
+            <!-- Student Form -->
+            <div class="form-container" id="studentForm">
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-step" data-step="3">3</div>
+                </div>
+                
+                <form id="studentRegistrationForm">
+                    <!-- Step 1: Personal Info -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button next" data-next="2">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Additional Info -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="16" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">Select Course</label>
+                            <select id="course" name="course" required>
+                                <option value="">Choose a course</option>
+                                <option value="cctv">CCTV Installation</option>
+                                <option value="solar">Solar Installation</option>
+                                <option value="webdev">Web Development</option>
+                                <option value="phonerepair">Phone Repair</option>
+                                <option value="cinematography">Cinematography</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button" data-previous="1">Previous</button>
+                            <button type="button" class="nav-button next" data-next="3">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Experience -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label for="experience">Previous Experience (if any)</label>
+                            <textarea id="experience" name="experience"></textarea>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button" data-previous="2">Previous</button>
+                            <button type="submit" class="submit-button">Submit Registration</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Tutor Form -->
+            <div class="form-container" id="tutorForm">
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-step" data-step="3">3</div>
+                </div>
+                
+                <form id="tutorRegistrationForm">
+                    <!-- Step 1: Personal Info -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-group">
+                            <label for="tutorName">Full Name</label>
+                            <input type="text" id="tutorName" name="tutorName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tutorEmail">Email Address</label>
+                            <input type="email" id="tutorEmail" name="tutorEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tutorPhone">Phone Number</label>
+                            <input type="tel" id="tutorPhone" name="tutorPhone" required>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button next" data-next="2">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Additional Info -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label for="tutorAge">Age</label>
+                            <input type="number" id="tutorAge" name="tutorAge" min="23" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tutorLocation">Location</label>
+                            <input type="text" id="tutorLocation" name="tutorLocation" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expertise">Area of Expertise</label>
+                            <select id="expertise" name="expertise" required>
+                                <option value="">Select your expertise</option>
+                                <option value="cctv">CCTV Installation</option>
+                                <option value="solar">Solar Installation</option>
+                                <option value="webdev">Web Development</option>
+                                <option value="phonerepair">Phone Repair</option>
+                                <option value="cinematography">Cinematography</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button" data-previous="1">Previous</button>
+                            <button type="button" class="nav-button next" data-next="3">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Qualifications -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label for="qualifications">Qualifications & Experience</label>
+                            <textarea id="qualifications" name="qualifications" required></textarea>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="nav-button" data-previous="2">Previous</button>
+                            <button type="submit" class="submit-button">Submit Registration</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Options Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="close-modal" id="closeContactModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 class="modal-title">Contact Customer Assistance</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Get more information about course fees and payment options</p>
+            
+            <div class="contact-options">
+                <div class="contact-button" data-action="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>Chat with us on WhatsApp for quick responses</p>
+                    </div>
+                </div>
+                
+                <div class="contact-button" data-action="call">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our customer service team</p>
+                    </div>
+                </div>
+                
+                <div class="contact-button" data-action="email">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>Send us an email for detailed information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Egold Technology Academy</h3>
+                <p>Empowering individuals with practical technology skills for the digital economy.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2347041036598" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-phone"></i> +234 704 103 6598</p>
+                <p><i class="fas fa-envelope"></i> egoldtechnologycompany@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="#" data-target="home">Home</a>
+                <a href="#" data-target="courses">Courses</a>
+                <a href="#" data-target="about">About Us</a>
+                <a href="#" data-target="contact">Contact Us</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Egold Technology Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(function() {
+                preloader.style.opacity = '0';
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 2000);
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // Save theme preference to localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Page Navigation
+        const homePage = document.getElementById('home-page');
+        const coursePages = document.querySelectorAll('.course-page');
+        const navLinksAll = document.querySelectorAll('.nav-link');
+        const courseLinks = document.querySelectorAll('.course-link, .course-button');
+        const backButtons = document.querySelectorAll('.back-to-home');
+        const registerButtons = document.querySelectorAll('.register-button');
+        
+        function showPage(pageId) {
+            // Hide all pages
+            homePage.style.display = 'none';
+            coursePages.forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show the requested page
+            if (pageId === 'home') {
+                homePage.style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                const coursePage = document.getElementById(`${pageId}-page`);
+                if (coursePage) {
+                    coursePage.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+        
+        // Add event listeners to navigation links
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-target');
+                showPage(target);
+            });
+        });
+        
+        // Add event listeners to course links
+        courseLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const course = this.getAttribute('data-course');
+                showPage(course);
+            });
+        });
+        
+        // Add event listeners to back buttons
+        backButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('home');
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const floatElements = document.querySelectorAll('.float-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+            
+            floatElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // Registration Modal Functionality
+        const registrationModal = document.getElementById('registrationModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const roleButtons = document.querySelectorAll('.role-button');
+        const studentForm = document.getElementById('studentForm');
+        const tutorForm = document.getElementById('tutorForm');
+        const studentRegistrationForm = document.getElementById('studentRegistrationForm');
+        const tutorRegistrationForm = document.getElementById('tutorRegistrationForm');
+
+        // Contact Modal Functionality
+        const contactModal = document.getElementById('contactModal');
+        const closeContactModalBtn = document.getElementById('closeContactModal');
+        const contactButtons = document.querySelectorAll('.contact-button');
+
+        // Function to open modal
+        function openModal() {
+            registrationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset form and show role selection
+            studentForm.style.display = 'none';
+            tutorForm.style.display = 'none';
+            roleButtons.forEach(btn => btn.classList.remove('active'));
+        }
+
+        // Function to open contact modal
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close modal
+        function closeModal() {
+            registrationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Function to close contact modal
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking close button
+        closeModalBtn.addEventListener('click', closeModal);
+        closeContactModalBtn.addEventListener('click', closeContactModal);
+
+        // Close modal when clicking outside
+        registrationModal.addEventListener('click', function(e) {
+            if (e.target === registrationModal) {
+                closeModal();
+            }
+        });
+
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+
+        // Role selection functionality
+        roleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const role = this.getAttribute('data-role');
+                
+                // Update active button
+                roleButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show appropriate form
+                if (role === 'student') {
+                    studentForm.style.display = 'block';
+                    tutorForm.style.display = 'none';
+                    resetFormProgress(studentRegistrationForm);
+                } else {
+                    studentForm.style.display = 'none';
+                    tutorForm.style.display = 'block';
+                    resetFormProgress(tutorRegistrationForm);
+                }
+            });
+        });
+
+        // Contact options functionality
+        contactButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                
+                switch(action) {
+                    case 'whatsapp':
+                        window.open('https://wa.me/2347041036598', '_blank');
+                        break;
+                    case 'call':
+                        window.location.href = 'tel:+2347041036598';
+                        break;
+                    case 'email':
+                        window.location.href = 'mailto:egoldtechnologycompany@gmail.com?subject=Course Inquiry&body=Hello, I would like more information about your courses.';
+                        break;
+                }
+                
+                closeContactModal();
+            });
+        });
+
+        // Form navigation functionality
+        function setupFormNavigation(form) {
+            const nextButtons = form.querySelectorAll('.nav-button.next');
+            const prevButtons = form.querySelectorAll('.nav-button[data-previous]');
+            const progressSteps = form.parentElement.querySelectorAll('.progress-step');
+            
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const nextStepNum = this.getAttribute('data-next');
+                    const nextStep = form.querySelector(`.form-step[data-step="${nextStepNum}"]`);
+                    
+                    // Validate current step before proceeding
+                    let isValid = true;
+                    const inputs = currentStep.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        if (!input.checkValidity()) {
+                            isValid = false;
+                            input.reportValidity();
+                        }
+                    });
+                    
+                    if (isValid) {
+                        currentStep.classList.remove('active');
+                        nextStep.classList.add('active');
+                        
+                        // Update progress bar
+                        const currentStepNum = currentStep.getAttribute('data-step');
+                        progressSteps[currentStepNum - 1].classList.remove('active');
+                        progressSteps[currentStepNum - 1].classList.add('completed');
+                        progressSteps[nextStepNum - 1].classList.add('active');
+                    }
+                });
+            });
+            
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const prevStepNum = this.getAttribute('data-previous');
+                    const prevStep = form.querySelector(`.form-step[data-step="${prevStepNum}"]`);
+                    
+                    currentStep.classList.remove('active');
+                    prevStep.classList.add('active');
+                    
+                    // Update progress bar
+                    const currentStepNum = currentStep.getAttribute('data-step');
+                    progressSteps[currentStepNum - 1].classList.remove('active');
+                    progressSteps[prevStepNum - 1].classList.add('active');
+                });
+            });
+        }
+
+        // Reset form progress to first step
+        function resetFormProgress(form) {
+            const steps = form.querySelectorAll('.form-step');
+            const progressSteps = form.parentElement.querySelectorAll('.progress-step');
+            
+            steps.forEach((step, index) => {
+                if (index === 0) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+            
+            progressSteps.forEach((step, index) => {
+                if (index === 0) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                    step.classList.remove('completed');
+                }
+            });
+        }
+
+        // Setup form navigation for both forms
+        setupFormNavigation(studentRegistrationForm);
+        setupFormNavigation(tutorRegistrationForm);
+
+        // Form submission
+        studentRegistrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration submitted successfully! Our customer assistance team will contact you shortly with payment details.');
+            this.reset();
+            closeModal();
+            openContactModal();
+        });
+
+        tutorRegistrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration submitted successfully! We will contact you shortly.');
+            this.reset();
+            closeModal();
+        });
+
+        // Add event listener to register buttons
+        registerButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+    </script>
+</body>
+</html>
