@@ -1911,90 +1911,79 @@
                     <div class="progress-step" data-step="3">3</div>
                 </div>
                 
-                <form id="studentRegistrationForm" action="https://formspree.io/f/mdklnorv" method="POST">
-                    <!-- Step 1: Personal Info -->
-                    <div class="form-step active" data-step="1">
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="nav-button next" data-next="2">Next</button>
-                        </div>
+            <form id="studentRegistrationForm" action="https://formspree.io/f/mdklnorv" method="POST">
+                <!-- Add a hidden field to help FormSpree with formatting -->
+                <input type="hidden" name="_format" value="plain" />
+                
+                <!-- Step 1: Personal Info -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
                     </div>
                     
-                    <!-- Step 2: Additional Info -->
-                    <div class="form-step" data-step="2">
-                        <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" id="age" name="age" min="16" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" name="location" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="course">Select Course</label>
-                            <select id="course" name="course" required>
-                                <option value="">Choose a course</option>
-                                <option value="cctv">CCTV Installation</option>
-                                <option value="solar">Solar Installation</option>
-                                <option value="webdev">Web Development</option>
-                                <option value="phonerepair">Phone Repair</option>
-                                <option value="cinematography">Cinematography</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="nav-button" data-previous="1">Previous</button>
-                            <button type="button" class="nav-button next" data-next="3">Next</button>
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     
-                    <!-- Step 3: Experience -->
-                    <div class="form-step" data-step="3">
-                        <div class="form-group">
-                            <label for="experience">Previous Experience (if any)</label>
-                            <textarea id="experience" name="experience"></textarea>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="nav-button" data-previous="2">Previous</button>
-                            <button type="submit" class="submit-button">Submit Registration</button>
-                        </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
-                </form>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="nav-button next" data-next="2">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Additional Info -->
+                <div class="form-step" data-step="2">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="16" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="course">Select Course</label>
+                        <select id="course" name="course" required>
+                            <option value="">Choose a course</option>
+                            <option value="cctv">CCTV Installation</option>
+                            <option value="solar">Solar Installation</option>
+                            <option value="webdev">Web Development</option>
+                            <option value="phonerepair">Phone Repair</option>
+                            <option value="cinematography">Cinematography</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="nav-button" data-previous="1">Previous</button>
+                        <button type="button" class="nav-button next" data-next="3">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Experience -->
+                <div class="form-step" data-step="3">
+                    <div class="form-group">
+                        <label for="experience">Previous Experience (if any)</label>
+                        <textarea id="experience" name="experience"></textarea>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="nav-button" data-previous="2">Previous</button>
+                        <button type="submit" class="submit-button">Submit Registration</button>
+                    </div>
+                </div>
+            </form>
             </div>
-            <form
-  action="https://formspree.io/f/mdklnorv"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+           
             <!-- Tutor Form -->
-            <div class="form-container" id="tutorForm">
+            <div class="form-container" id="tutorForm" action="https://formspree.io/f/mdklnorv" method="POST">
                 <div class="progress-bar">
                     <div class="progress-step active" data-step="1">1</div>
                     <div class="progress-step" data-step="2">2</div>
