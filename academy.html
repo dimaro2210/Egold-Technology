@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="images/egoldtech.png">
     <title>Egold Technology Academy</title>
-     <link rel="icon" type="images/png" href="images/egoldtech.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2563eb;
             --primary-dark: #1e40af;
             --secondary: #3b82f6;
-            --accent: #60极5fa;
+            --accent: #60a5fa;
             --success: #10b981;
-            --error: #ef4444;
             --text: #1f2937;
             --text-light: #6b7280;
             --bg: #f9fafb;
@@ -58,6 +57,61 @@
             scroll-behavior: smooth;
         }
 
+        /* Page Container */
+        .page-container {
+            display: block;
+        }
+
+        .course-page {
+            display: none;
+            padding: 7rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .logo-loader {
+            width: 120px;
+            height: 120px;
+            animation: pulse 2s infinite ease-in-out;
+            margin-bottom: 1rem;
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Header */
         header {
             background: var(--header-bg);
@@ -81,6 +135,12 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
         }
 
         .logo-text {
@@ -102,6 +162,7 @@
             font-weight: 500;
             position: relative;
             padding: 0.5rem 0;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
@@ -156,13 +217,13 @@
             border: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color:极(--text);
+            color: var(--text);
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 2极 4rem;
-            background: linear-gradient(135deg, rgba(107, 114, 128, 0.9) 0%, rgba(75, 85, 99, 0.9) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3f极B8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&极it=crop&w=1800&q=80') center/cover;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(107, 114, 128, 0.9) 0%, rgba(75, 85, 99, 0.9) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80') center/cover;
             color: white;
             text-align: center;
             position: relative;
@@ -294,7 +355,7 @@
             margin-bottom: 0.8rem;
             color: var(--primary);
             font-size: 1.4rem;
-}
+        }
 
         .course-content p {
             color: var(--text-light);
@@ -307,7 +368,7 @@
             display: inline-block;
             padding: 0.8rem 1.8rem;
             background: var(--gradient);
-极          color: white;
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 500;
@@ -320,7 +381,132 @@
             box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
         }
 
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d1d5db;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
         /* Modal Styles */
+        
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -438,7 +624,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10极); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -471,7 +657,7 @@
             justify-content: center;
             font-weight: bold;
             position: relative;
-            z极dex: 2;
+            z-index: 2;
             border: 2px solid var(--bg-secondary);
         }
 
@@ -481,7 +667,7 @@
             border-color: var(--primary);
         }
 
-极      .progress-step.completed {
+        .progress-step.completed {
             background: var(--success);
             color: white;
             border-color: var(--success);
@@ -563,108 +749,316 @@
             box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
         }
 
-        .submit-button:disabled {
-            background: var(--text-light);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+        /* Contact Options Modal */
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .status-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
+        .contact-button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--bg);
+            border: 2px solid var(--bg-secondary);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .contact-button:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-button i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        .contact-button div {
+            flex: 1;
+        }
+
+        .contact-button h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .contact-button p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Course Detail Pages */
+        .course-detail-page {
+            padding: 7rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
             display: none;
         }
 
-        .status-success {
-            background-color: #d1fae5;
-            color: #065f46;
-            display: block;
-        }
-
-        .status-error {
-            background-color: #fee2e2;
-            color: #b91c1c;
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .footer-col h3:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 10px;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #d1极5db;
-            margin-bottom: 0.8rem;
-            display: block;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: white;
-            padding-left: 8px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-icons a {
+        .back-button {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: var(--bg);
             transition: var(--transition);
         }
 
-        .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+        .back-button:hover {
+            background: var(--bg-secondary);
+            transform: translateX(-5px);
         }
 
-        .copyright {
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        .course-header {
             text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9ca3af;
+            margin-bottom: 3rem;
+        }
+
+        .course-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .course-header p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .overview-box {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .overview-box h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .objectives-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .objectives-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .objective-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .objective-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .objective-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .modules-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .modules-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .module {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .module:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .module h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .module-content {
+            padding-left: 2rem;
+        }
+
+        .module-content ul {
+            list-style-type: none;
+        }
+
+        .module-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            line-height: 1.6;
+        }
+
+        .module-content li:before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .case-study, .exercises {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .case-study h2, .exercises h2 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .case-study p, .exercises ul {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .exercises ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .exercises li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .exercises li:before {
+            content: '▸';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .secondary-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--bg);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px var(--shadow);
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--shadow);
+        }
+
+        .primary-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: var(--transition);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Floating text animation */
+        .float-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .float-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Animations */
@@ -679,6 +1073,18 @@
             }
         }
 
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -690,7 +1096,30 @@
             transform: translateY(0);
         }
 
+        /* 3D hover effect for cards */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 padding: 1rem;
@@ -737,6 +1166,10 @@
             .role-selection {
                 flex-direction: column;
             }
+
+            .contact-options {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 576px) {
@@ -744,31 +1177,59 @@
                 grid-template-columns: 1fr;
             }
 
+            .course-detail-page {
+                padding: 6rem 1rem 2rem;
+            }
+
             .hero {
                 padding: 6rem 1rem 3rem;
             }
 
-            .courses {
+            .courses, .about {
                 padding: 3rem 1rem;
             }
 
             .modal {
                 padding: 1.5rem;
             }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .secondary-button, .primary-button {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <!-- Egold logo would be loaded here -->
+            <div class="logo-loader">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#2563eb" opacity="0.7"/>
+                    <text x="50" y="58" text-anchor="middle" fill="white" font-size="16" font-weight="bold">EGOLD</text>
+                </svg>
+            </div>
+            <div class="loader-text">LOADING</div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo">
-                <div class="logo-text">Egold Technology Academy</div>
+                 <img src="images/egold logo.png" alt="Egold Technology Logo" style="width: 80px;">
+             
             </div>
             
             <nav class="nav-links">
                 <a href="#" class="nav-link" data-target="home">Home</a>
-                <a href="#" class="nav-link" data-target="极ourses">Courses</a>
+                <a href="#" class="nav-link" data-target="courses">Courses</a>
                 <a href="#" class="nav-link" data-target="about">About</a>
                 <a href="#" class="nav-link" data-target="contact">Contact</a>
             </nav>
@@ -777,7 +1238,7 @@
                 <button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle"极="menuToggle">
+                <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -801,7 +1262,7 @@
             
             <div class="courses-grid">
                 <!-- Solar Installation -->
-                <div class="course-card fade-in">
+                <div class="course-card fade-in card-3d">
                     <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
                         <div class="course-icon">
                             <i class="fas fa-solar-panel"></i>
@@ -809,14 +1270,14 @@
                     </div>
                     <div class="course-content">
                         <h3>Solar Installation</h3>
-                        <极>Learn to design, install, and maintain solar power systems for sustainable energy solutions.</p>
+                        <p>Learn to design, install, and maintain solar power systems for sustainable energy solutions.</p>
                         <a href="#" class="course-button" data-course="solar">Learn More</a>
                     </div>
                 </div>
                 
                 <!-- Web Development -->
-                <div class="course-card fade-in">
-                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib极rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
                         <div class="course-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -829,8 +1290,8 @@
                 </div>
                 
                 <!-- Phone Repair -->
-                <div class="course-card fade-in">
-                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1598327105854-c8674faddf74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8极Hx8&auto=format&fit=crop&w=极200&q=80');">
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1598327105854-c8674faddf74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
                         <div class="course-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -841,8 +1302,583 @@
                         <a href="#" class="course-button" data-course="phonerepair">Learn More</a>
                     </div>
                 </div>
+                
+                <!-- Cinematography -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1545239351-ef35f43d514b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Cinematography</h3>
+                        <p>Learn the art of visual storytelling through camera operation, lighting, composition, and editing.</p>
+                        <a href="#" class="course-button" data-course="cinematography">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- CCTV Installation -->
+                <div class="course-card fade-in card-3d">
+                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1594122230682-6d5c5f2fce61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');">
+                        <div class="course-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3>CCTV Installation</h3>
+                        <p>Master security system installation, configuration, and troubleshooting for residential and commercial applications.</p>
+                        <a href="#" class="course-button" data-course="cctv">Learn More</a>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>Why Choose Egold Technology Academy?</h2>
+                    <p>At Egold Technology Academy, we're committed to providing high-quality, hands-on training that prepares you for real-world challenges. Our courses are designed by industry experts with years of practical experience.</p>
+                    <p>We focus on project-based learning, ensuring that you not only understand the theory but can also apply your knowledge to solve practical problems.</p>
+                    <p>Our state-of-the-art labs and small class sizes guarantee personalized attention and ample practice time with the latest tools and technologies.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Egold Academy Students">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Course Detail Pages -->
+    <!-- CCTV Installation -->
+    <div id="cctv-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>CCTV Installation Course</h1>
+            <p>Master the skills needed to design, install, and maintain CCTV systems for residential and commercial security applications.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>CCTV (Closed-Circuit Television) is used for security, surveillance, and monitoring. Mastering CCTV installation gives you both a personal and business opportunity in today's security-conscious world.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Understand CCTV Systems</h3>
+                    <p>Learn about different types of CCTV systems and their applications</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Identify Tools & Equipment</h3>
+                    <p>Recognize the tools and components needed for installation</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Perform Installation</h3>
+                    <p>Execute a complete CCTV system installation from start to finish</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Configure Remote Access</h3>
+                    <p>Set up systems for remote monitoring and access</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Troubleshoot Issues</h3>
+                    <p>Diagnose and fix common CCTV system problems</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction to CCTV</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>What is CCTV and how it works (camera → DVR/NVR → monitor)</li>
+                        <li>Types of CCTV systems: Analog CCTV (DVR based), IP CCTV (NVR based, network cameras)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 2: Tools & Equipment</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>CCTV camera types: dome, bullet, PTZ</li>
+                        <li>DVR/NVR recorder</li>
+                        <li>Coaxial/ethernet cables, connectors (BNC, RJ45)</li>
+                        <li>Power supply units</li>
+                        <li>Monitor</li>
+                        <li>Basic tools: drill, tester, crimping tool</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 3: Installation Basics</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Camera placement (avoid backlighting, ensure coverage)</li>
+                        <li>Running cables (concealed vs open)</li>
+                        <li>Connecting to DVR/NVR</li>
+                        <li>Powering cameras</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-sliders-h"></i> Module 4: Configuration</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>DVR/NVR setup (IP address, date/time)</li>
+                        <li>Remote access (mobile app, port forwarding)</li>
+                        <li>Testing and troubleshooting (no signal, unclear image)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a 4-camera DVR kit at home before going commercial.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="cctv">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Solar Installation -->
+    <div id="solar-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Solar Installation Course</h1>
+            <p>Master the skills needed to design, install, and maintain solar power systems for residential and commercial applications.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Solar energy is a clean, renewable source, widely used in homes, businesses, and rural electrification.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-sun"></i>
+                    <h3>Understand Solar Systems</h3>
+                    <p>Learn how solar energy systems work and their components</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Identify Components</h3>
+                    <p>Recognize all components of a solar power system</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Install Systems</h3>
+                    <p>Install a complete off-grid solar system</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Ensure Safety</h3>
+                    <p>Implement safety measures and maintenance procedures</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>How solar works (sunlight → solar panel → charge controller → battery → inverter → AC load)</li>
+                        <li>Types of systems: Off-grid, On-grid, Hybrid</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-solar-panel"></i> Module 2: Components</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Solar panels (mono vs polycrystalline)</li>
+                        <li>Charge controller (PWM vs MPPT)</li>
+                        <li>Batteries (lead-acid, lithium)</li>
+                        <li>Inverter</li>
+                        <li>Mounting structures</li>
+                        <li>Safety gear</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 3: Installation Process</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Site survey (roof angle, sunlight hours)</li>
+                        <li>Mounting panels</li>
+                        <li>Wiring: Panels → charge controller, Controller → battery, Battery → inverter → load</li>
+                        <li>Grounding & surge protection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 4: Maintenance</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Cleaning panels</li>
+                        <li>Checking battery health</li>
+                        <li>Monitoring system performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Begin with a small 1kVA system (1–2 panels, 1 battery) to learn hands-on.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="solar">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Web Development -->
+    <div id="webdev-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Web Development Course</h1>
+            <p>Learn to build responsive websites and web applications using HTML, CSS, JavaScript and modern frameworks.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Web development is the backbone of the digital world. Websites are needed by businesses, schools, NGOs, and individuals.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Understand Web Fundamentals</h3>
+                    <p>Learn how the web works and essential tools</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Build Web Pages</h3>
+                    <p>Create structured web pages using HTML</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Design Websites</h3>
+                    <p>Style websites with CSS and make them responsive</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Add Interactivity</h3>
+                    <p>Implement functionality with JavaScript</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Publish Websites</h3>
+                    <p>Deploy websites to live servers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Getting Started</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>How the web works (browser, server, hosting)</li>
+                        <li>Tools needed: text editor (VS Code), browser (Chrome/Firefox)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-code"></i> Module 2: HTML (Structure)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Basic tags: &lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, &lt;div&gt;</li>
+                        <li>Building your first page</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-paint-brush"></i> Module 3: CSS (Design)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Selectors, colors, fonts, borders, backgrounds</li>
+                        <li>Responsive design with media queries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cogs"></i> Module 4: JavaScript (Interaction)</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Variables, functions, events (onclick, onsubmit)</li>
+                        <li>Simple DOM manipulations (change text, hide/show)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-cloud-upload-alt"></i> Module 5: Publishing</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Git & GitHub basics</li>
+                        <li>Free hosting: GitHub Pages, Netlify, Vercel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a portfolio website showing your skills and grow from there.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="webdev">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Phone Repair -->
+    <div id="phonerepair-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Phone Repair Course</h1>
+            <p>Gain practical skills in diagnosing and repairing various smartphone hardware and software issues.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Smartphones are essential; phone repair is a profitable skill in every community.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-mobile"></i>
+                    <h3>Understand Phone Anatomy</h3>
+                    <p>Learn about phone components and common issues</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Identify Tools</h3>
+                    <p>Recognize the tools needed for phone repair</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Perform Hardware Repairs</h3>
+                    <p>Execute common hardware repairs</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Perform Software Repairs</h3>
+                    <p>Fix common software issues</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Phone anatomy: motherboard, battery, screen, charging port, camera</li>
+                        <li>Common issues (won't charge, broken screen, water damage)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-tools"></i> Module 2: Tools & Equipment</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Screwdrivers (Torx, Phillips)</li>
+                        <li>Multimeter</li>
+                        <li>Soldering iron & hot air station</li>
+                        <li>Plastic prying tools</li>
+                        <li>Magnifying glass</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-wrench"></i> Module 3: Basic Repairs</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Replacing batteries</li>
+                        <li>Screen replacement</li>
+                        <li>Charging port replacement</li>
+                        <li>Testing with multimeter</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-desktop"></i> Module 4: Software Repairs</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Flashing firmware</li>
+                        <li>Removing FRP locks</li>
+                        <li>Resetting phones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Practice on old or dead phones before handling customer devices.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="phonerepair">Proceed to Register</a>
+        </div>
+    </div>
+
+    <!-- Cinematography -->
+    <div id="cinematography-page" class="course-page">
+        <a href="#" class="back-button back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="course-header">
+            <h1>Cinematography Course</h1>
+            <p>Learn the art of visual storytelling through camera operation, lighting, composition, and editing.</p>
+        </div>
+
+        <div class="overview-box float-in">
+            <h2>Overview</h2>
+            <p>Cinematography is the art of storytelling through moving images. It combines creativity and technical skill.</p>
+        </div>
+
+        <div class="objectives-container float-in">
+            <h2>Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Understand Camera Operation</h3>
+                    <p>Learn about different camera types and settings</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Master Composition</h3>
+                    <p>Learn framing, composition and lighting techniques</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Record Quality Audio</h3>
+                    <p>Learn to capture clear audio for videos</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-edit"></i>
+                    <h3>Edit Videos Professionally</h3>
+                    <p>Learn professional video editing techniques</p>
+                </div>
+                <div class="objective-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Master Storytelling</h3>
+                    <p>Learn to tell compelling stories through video</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-container float-in">
+            <h2>Detailed Modules</h2>
+            
+            <div class="module">
+                <h3><i class="fas fa-info-circle"></i> Module 1: Introduction</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Difference between videography & cinematography</li>
+                        <li>Understanding camera types: DSLR, mirrorless, smartphone</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-camera"></i> Module 2: Basics of Shooting</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Camera settings: ISO, shutter speed, aperture</li>
+                        <li>Framing & composition (rule of thirds, leading lines)</li>
+                        <li>Lighting basics (natural vs artificial)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-microphone"></i> Module 3: Audio</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Importance of good sound</li>
+                        <li>External mics vs inbuilt mic</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-edit"></i> Module 4: Editing</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Software: CapCut, Premiere Pro, DaVinci Resolve</li>
+                        <li>Basics: cutting, transitions, color grading</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module">
+                <h3><i class="fas fa-book-open"></i> Module 5: Storytelling</h3>
+                <div class="module-content">
+                    <ul>
+                        <li>Planning shots with storyboards</li>
+                        <li>Shooting sequences (wide → medium → close-up)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study float-in">
+            <h2>Practical Tip</h2>
+            <p>Start with a short 1-minute video project using your phone, then upgrade to pro gear.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="#" class="secondary-button back-to-home">Back to Home</a>
+            <a href="#" class="primary-button register-button" data-course="cinematography">Proceed to Register</a>
+        </div>
     </div>
 
     <!-- Registration Modal -->
@@ -870,12 +1906,12 @@
             <!-- Student Form -->
             <div class="form-container" id="studentForm">
                 <div class="progress-bar">
-                    <div class="progress-step active" data-step="1">1</极>
+                    <div class="progress-step active" data-step="1">1</div>
                     <div class="progress-step" data-step="2">2</div>
                     <div class="progress-step" data-step="3">3</div>
                 </div>
                 
-                <form id="studentRegistrationForm" method="POST">
+                <form id="studentRegistrationForm">
                     <!-- Step 1: Personal Info -->
                     <div class="form-step active" data-step="1">
                         <div class="form-group">
@@ -930,7 +1966,7 @@
                     
                     <!-- Step 3: Experience -->
                     <div class="form-step" data-step="3">
-                        <div class极="form-group">
+                        <div class="form-group">
                             <label for="experience">Previous Experience (if any)</label>
                             <textarea id="experience" name="experience"></textarea>
                         </div>
@@ -940,8 +1976,6 @@
                             <button type="submit" class="submit-button">Submit Registration</button>
                         </div>
                     </div>
-                    
-                    <div id="studentStatusMessage" class="status-message"></div>
                 </form>
             </div>
             
@@ -953,7 +1987,7 @@
                     <div class="progress-step" data-step="3">3</div>
                 </div>
                 
-                <form id="tutorRegistrationForm" method="POST">
+                <form id="tutorRegistrationForm">
                     <!-- Step 1: Personal Info -->
                     <div class="form-step active" data-step="1">
                         <div class="form-group">
@@ -1018,9 +2052,45 @@
                             <button type="submit" class="submit-button">Submit Registration</button>
                         </div>
                     </div>
-                    
-                    <div id="tutorStatusMessage" class="status-message"></div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Options Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="close-modal" id="closeContactModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 class="modal-title">Contact Customer Assistance</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Get more information about course fees and payment options</p>
+            
+            <div class="contact-options">
+                <div class="contact-button" data-action="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>Chat with us on WhatsApp for quick responses</p>
+                    </div>
+                </div>
+                
+                <div class="contact-button" data-action="call">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our customer service team</p>
+                    </div>
+                </div>
+                
+                <div class="contact-button" data-action="email">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>Send us an email for detailed information</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1032,15 +2102,15 @@
                 <h3>Egold Technology Academy</h3>
                 <p>Empowering individuals with practical technology skills for the digital economy.</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/18fhab85ga/" target="_blank"><i class="fab fa-facebook"></i>
-                    <a href="https://www.tiktok.com/@user55362234?_t=ZM-8uY6FRVj5fS&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/erunsdlegend?igsh=OXdweDF5YTBucjhx" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/2347030842893" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2347041036598" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             
             <div class="footer-col">
-                <h3极Contact Info</h3>
+                <h3>Contact Info</h3>
                 <p><i class="fas fa-phone"></i> +234 704 103 6598</p>
                 <p><i class="fas fa-envelope"></i> egoldtechnologycompany@gmail.com</p>
                 <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
@@ -1060,21 +2130,16 @@
         </div>
     </footer>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init({
-                publicKey: "0XnH471B5Y1W-RJz9",
-            });
-        })();
-
-        // Preloader (simplified)
+        // Preloader
         window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
             setTimeout(function() {
-                document.body.classList.add('loaded');
-            }, 1000);
+                preloader.style.opacity = '0';
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 2000);
         });
 
         // Theme Toggle
@@ -1093,7 +2158,8 @@
             }
             
             // Save theme preference to localStorage
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
         });
         
         // Check for saved theme preference
@@ -1117,6 +2183,89 @@
             }
         });
 
+        // Page Navigation
+        const homePage = document.getElementById('home-page');
+        const coursePages = document.querySelectorAll('.course-page');
+        const navLinksAll = document.querySelectorAll('.nav-link');
+        const courseLinks = document.querySelectorAll('.course-link, .course-button');
+        const backButtons = document.querySelectorAll('.back-to-home');
+        const registerButtons = document.querySelectorAll('.register-button');
+        
+        function showPage(pageId) {
+            // Hide all pages
+            homePage.style.display = 'none';
+            coursePages.forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show the requested page
+            if (pageId === 'home') {
+                homePage.style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                const coursePage = document.getElementById(`${pageId}-page`);
+                if (coursePage) {
+                    coursePage.style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+        
+        // Add event listeners to navigation links
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-target');
+                showPage(target);
+            });
+        });
+        
+        // Add event listeners to course links
+        courseLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const course = this.getAttribute('data-course');
+                showPage(course);
+            });
+        });
+        
+        // Add event listeners to back buttons
+        backButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('home');
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const floatElements = document.querySelectorAll('.float-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+            
+            floatElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
         // Registration Modal Functionality
         const registrationModal = document.getElementById('registrationModal');
         const closeModalBtn = document.getElementById('closeModal');
@@ -1125,7 +2274,11 @@
         const tutorForm = document.getElementById('tutorForm');
         const studentRegistrationForm = document.getElementById('studentRegistrationForm');
         const tutorRegistrationForm = document.getElementById('tutorRegistrationForm');
-        const registerButtons = document.querySelectorAll('.course-button');
+
+        // Contact Modal Functionality
+        const contactModal = document.getElementById('contactModal');
+        const closeContactModalBtn = document.getElementById('closeContactModal');
+        const contactButtons = document.querySelectorAll('.contact-button');
 
         // Function to open modal
         function openModal() {
@@ -1138,19 +2291,38 @@
             roleButtons.forEach(btn => btn.classList.remove('active'));
         }
 
+        // Function to open contact modal
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
         // Function to close modal
         function closeModal() {
             registrationModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
+        // Function to close contact modal
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // Close modal when clicking close button
         closeModalBtn.addEventListener('click', closeModal);
+        closeContactModalBtn.addEventListener('click', closeContactModal);
 
         // Close modal when clicking outside
         registrationModal.addEventListener('click', function(e) {
             if (e.target === registrationModal) {
                 closeModal();
+            }
+        });
+
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeContactModal();
             }
         });
 
@@ -1173,6 +2345,27 @@
                     tutorForm.style.display = 'block';
                     resetFormProgress(tutorRegistrationForm);
                 }
+            });
+        });
+
+        // Contact options functionality
+        contactButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                
+                switch(action) {
+                    case 'whatsapp':
+                        window.open('https://wa.me/2347041036598', '_blank');
+                        break;
+                    case 'call':
+                        window.location.href = 'tel:+2347041036598';
+                        break;
+                    case 'email':
+                        window.location.href = 'mailto:egoldtechnologycompany@gmail.com?subject=Course Inquiry&body=Hello, I would like more information about your courses.';
+                        break;
+                }
+                
+                closeContactModal();
             });
         });
 
@@ -1206,7 +2399,7 @@
                         const currentStepNum = currentStep.getAttribute('data-step');
                         progressSteps[currentStepNum - 1].classList.remove('active');
                         progressSteps[currentStepNum - 1].classList.add('completed');
-                        progressSteps[nextStepNum - 1].classList.add极('active');
+                        progressSteps[nextStepNum - 1].classList.add('active');
                     }
                 });
             });
@@ -1255,186 +2448,20 @@
         setupFormNavigation(studentRegistrationForm);
         setupFormNavigation(tutorRegistrationForm);
 
-        // EmailJS Functionality
-        function sendEmail(templateParams, isStudent = true) {
-            return emailjs.send('service_5i37x44', 'template_84q7sbv', templateParams)
-                .then(function(response) {
-                    console.log('EmailJS SUCCESS!', response.status, response.text);
-                    return true;
-                }, function(error) {
-                    console.log('EmailJS FAILED...', error);
-                    return false;
-                });
-        }
-
-        // Formspree Submission
-        function submitToFormspree(formData, isStudent = true) {
-            const formspreeFormData = new FormData();
-            
-            // Add all form data to Formspree submission
-            for (const [key, value] of Object.entries(formData)) {
-                formspreeFormData.append(key, value);
-            }
-            
-            // Add subject based on form type
-            formspreeFormData.append('_subject', isStudent ? 'New Student Registration' : 'New Tutor Application');
-            
-            return fetch('https://formspree.io/f/mdklnorv', {
-                method: 'POST',
-                body: formspreeFormData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Formspree submission successful');
-                    return true;
-                } else {
-                    throw new Error('Formspree submission failed');
-                }
-            })
-            .catch(error => {
-                console.error('Formspree error:', error);
-                return false;
-            });
-        }
-
-        // Form submission handlers
+        // Form submission
         studentRegistrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const formProps = Object.fromEntries(formData);
-            const courseName = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-button');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            // Hide any previous status messages
-            const statusMessage = document.getElementById('studentStatusMessage');
-            statusMessage.style.display = 'none';
-            statusMessage.className = 'status-message';
-            
-            // Prepare template parameters for EmailJS
-            const templateParams = {
-                to_email: formProps.email,
-                to_name: formProps.fullName,
-                from_name: "Egold Technology Academy",
-                course_name: courseName,
-                phone: formProps.phone,
-                message: `Thank you for registering for our ${courseName} course. Our team will contact you shortly with payment details.`
-            };
-
-            // 1. Send email using EmailJS
-            sendEmail(templateParams, true)
-                .then(emailSuccess => {
-                    // 2. Submit to Formspree
-                    return submitToFormspree(formProps, true)
-                        .then(formspreeSuccess => {
-                            if (emailSuccess || formspreeSuccess) {
-                                // Show success message
-                                statusMessage.textContent = 'Registration successful!' + 
-                                    (emailSuccess ? ' A confirmation email has been sent to you.' : '');
-                                statusMessage.className = 'status-message status-success';
-                                statusMessage.style.display = 'block';
-                                
-                                // Reset form
-                                this.reset();
-                                resetFormProgress(this);
-                                
-                                // Close modal after 3 seconds
-                                setTimeout(() => {
-                                    closeModal();
-                                }, 3000);
-                            } else {
-                                throw new Error('Both EmailJS and Formspree failed');
-                            }
-                        });
-                })
-                .catch(error => {
-                    console.error('Submission error:', error);
-                    statusMessage.textContent = 'There was an error submitting your registration. Please try again or contact us directly.';
-                    statusMessage.className = 'status-message status-error';
-                    statusMessage.style.display = 'block';
-                })
-                .finally(() => {
-                    // Restore button state
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                });
+            alert('Registration submitted successfully! Our customer assistance team will contact you shortly with payment details.');
+            this.reset();
+            closeModal();
+            openContactModal();
         });
 
         tutorRegistrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const formProps = Object.fromEntries(formData);
-            const expertise = document.getElementById('expertise').options[document.getElementById('expertise').selectedIndex].text;
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-button');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            // Hide any previous status messages
-            const statusMessage = document.getElementById('tutorStatusMessage');
-            statusMessage.style.display = 'none';
-            statusMessage.className = 'status-message';
-            
-            // Prepare template parameters for EmailJS
-            const templateParams = {
-                to_email: formProps.tutorEmail,
-                to_name: formProps.tutorName,
-                from_name: "Egold Technology Academy",
-                course_name: expertise,
-                phone: formProps.tutorPhone,
-                message: `Thank you for your interest in becoming a tutor for ${expertise}. Our team will review your application and contact you shortly.`
-            };
-
-            // 1. Send email using EmailJS
-            sendEmail(templateParams, false)
-                .then(emailSuccess => {
-                    // 2. Submit to Formspree
-                    return submitTo极ormspree(formProps, false)
-                        .then(formspreeSuccess => {
-                            if (emailSuccess || formspreeSuccess) {
-                                // Show success message
-                                statusMessage.textContent = 'Application submitted successfully!' + 
-                                    (emailSuccess ? ' A confirmation email has been sent to you.' : '');
-                                statusMessage.className = 'status-message status-success';
-                                statusMessage.style.display = 'block';
-                                
-                                // Reset form
-                                this.reset();
-                                resetFormProgress(this);
-                                
-                                // Close modal after 3 seconds
-                                setTimeout(() => {
-                                    closeModal();
-                                }, 3000);
-                            } else {
-                                throw new Error('Both EmailJS and Formspree failed');
-                            }
-                        });
-                })
-                .catch(error => {
-                    console.error('Submission error:', error);
-                    statusMessage.textContent = 'There was an error submitting your application. Please try again or contact us directly.';
-                    statusMessage.className = 'status-message status-error';
-                    statusMessage.style.display = 'block';
-                })
-                .finally(() => {
-                    // Restore button state
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                });
+            alert('Registration submitted successfully! We will contact you shortly.');
+            this.reset();
+            closeModal();
         });
 
         // Add event listener to register buttons
@@ -1442,38 +2469,8 @@
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 openModal();
-                
-                // Set the course based on which button was clicked
-                const course = this.getAttribute('data-course');
-                if (course) {
-                    const courseSelect = document.getElementById('course');
-                    for (let i = 0; i < courseSelect.options.length; i++) {
-                        if (courseSelect.options[i].value === course) {
-                            courseSelect.selectedIndex = i;
-                            break;
-                        }
-                    }
-                }
             });
         });
-
-        // Scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        function checkScroll() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
-                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
-                
-                if (isVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
     </script>
 </body>
 </html>
