@@ -10,15 +10,15 @@
     <title>Egold Technology</title>
     <link rel="icon" type="images/png" href="images/egoldtech.png">
     <link rel="stylesheet" href="style.css">
-</head>
-<style>
-    preloader {
+    <style>
+        /* Preloader Styles from Academy File */
+        #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg);
+            background: var(--bg, #f9fafb);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,7 +39,7 @@
         .loader-text {
             font-size: 1.2rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary, #2563eb);
             letter-spacing: 2px;
         }
 
@@ -53,16 +53,14 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
- 
-</style>
+    </style>
+</head>
 <body>
+     <!-- Preloader from Academy File -->
      <div id="preloader">
         <div class="preloader-content">
             <div class="logo-loader">
-                <img src="images/egoldtech.png" alt="egold logo">
-                    <circle cx="50" cy="50" r="45" fill="#2563eb" opacity="0.7"/>
-                    <text x="50" y="58" text-anchor="middle" fill="white" font-size="16" font-weight="bold">EGOLD</text>
-                </svg>
+                <img src="images/egoldtech.png" alt="egoldtech.png" style="width: 80px;">
             </div>
             <div class="loader-text">LOADING</div>
         </div>
@@ -86,8 +84,6 @@
                 </ul>
             </nav>
         </div>
-        
-        
     </header>
     
     <!-- Mobile Bottom Navigation -->
@@ -597,7 +593,7 @@
     </div>
     
     <script>
-        / Preloader
+        // Preloader from Academy File
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(function() {
@@ -607,149 +603,39 @@
                 }, 600);
             }, 2000);
         });
-// Generate floating shapes
-function createFloatingShapes() {
-    const container = document.getElementById('floatingShapes');
-    const colors = ['#1a7d8a', '#0a1f3d', '#0d4e5a'];
-    
-    for (let i = 0; i < 10; i++) {
-        const shape = document.createElement('div');
-        shape.classList.add('shape');
-        
-        // Random properties
-        const size = Math.random() * 200 + 100;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const delay = Math.random() * 10;
-        const duration = Math.random() * 20 + 10;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        
-        shape.style.width = `${size}px`;
-        shape.style.height = `${size}px`;
-        shape.style.left = `${posX}%`;
-        shape.style.top = `${posY}%`;
-        shape.style.animationDelay = `${delay}s`;
-        shape.style.animationDuration = `${duration}s`;
-        shape.style.background = color;
-        
-        container.appendChild(shape);
-    }
-}
 
-// Hero Slider
-function initHeroSlider() {
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
-    
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[index].classList.add('active');
-    }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-    
-    // Auto-rotate slides every 5 seconds
-    setInterval(nextSlide, 5000);
-}
-
-// Theme Toggle
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    if (savedTheme === 'dark') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        if (newTheme === 'dark') {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
+        // Generate floating shapes
+        function createFloatingShapes() {
+            const container = document.getElementById('floatingShapes');
+            const colors = ['#1a7d8a', '#0a1f3d', '#0d4e5a'];
+            
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                // Random properties
+                const size = Math.random() * 200 + 100;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 20 + 10;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.left = `${posX}%`;
+                shape.style.top = `${posY}%`;
+                shape.style.animationDelay = `${delay}s`;
+                shape.style.animationDuration = `${duration}s`;
+                shape.style.background = color;
+                
+                container.appendChild(shape);
+            }
         }
-    });
-}
 
-// Gallery Slider
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.gallery-dot');
-    
-    if (n > slides.length) { slideIndex = 1; }
-    if (n < 1) { slideIndex = slides.length; }
-    
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
-    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].classList.remove('active');
-    }
-    
-    slides[slideIndex - 1].style.display = 'block';
-    dots[slideIndex - 1].classList.add('active');
-}
-
-// Auto slide gallery
-let slideInterval = setInterval(() => {
-    plusSlides(1);
-}, 5000);
-
-// Pause on hover
-const gallery = document.querySelector('.gallery-container');
-gallery.addEventListener('mouseenter', () => {
-    clearInterval(slideInterval);
-});
-
-gallery.addEventListener('mouseleave', () => {
-    slideInterval = setInterval(() => {
-        plusSlides(1);
-    }, 5000);
-});
-
-// Service Detail Sliders
-function initServiceDetailSliders() {
-    const services = [
-        'renewable-energy',
-        'surveillance-systems',
-        'roadblocker-systems',
-        'training',
-        'installations',
-        'repair-service'
-    ];
-    
-    services.forEach(service => {
-        const slider = document.getElementById(`${service}-slider`);
-        if (slider) {
-            const slides = slider.querySelectorAll('.service-detail-slide');
+        // Hero Slider
+        function initHeroSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
             let currentSlide = 0;
             
             function showSlide(index) {
@@ -765,94 +651,109 @@ function initServiceDetailSliders() {
             // Auto-rotate slides every 5 seconds
             setInterval(nextSlide, 5000);
         }
-    });
-}
 
-// Show Service Detail
-function showServiceDetail(service) {
-    document.getElementById(`${service}-detail`).classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-// Hide Service Detail
-function hideServiceDetail() {
-    document.querySelectorAll('.service-detail').forEach(detail => {
-        detail.classList.remove('active');
-    });
-    document.body.style.overflow = 'auto';
-}
-
-
-// Mobile Sidebar Toggle
-function showSidebar() {
-    document.getElementById('sidebar').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function hideSidebar() {
-    document.getElementById('sidebar').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// Close sidebar when clicking on a link
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', hideSidebar);
-});
-
-// Sticky Header
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    const backToTop = document.getElementById('backToTop');
-    
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        backToTop.classList.add('active');
-    } else {
-        header.classList.remove('scrolled');
-        backToTop.classList.remove('active');
-    }
-});
-
-// Back to Top Button
-document.getElementById('backToTop').addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Scroll Animation
-function checkScroll() {
-    const elements = document.querySelectorAll('.floating-text, .service-card, .testimonial-card, .section');
-    
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-        
-        if (elementPosition < screenPosition) {
-            element.classList.add('visible');
+        // Theme Toggle
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
         }
-    });
-}
 
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
+        // Gallery Slider
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-// Mobile bottom nav active link
-const currentPath = window.location.hash || '#home';
-document.querySelector(`.mobile-bottom-nav a[href="${currentPath}"]`).classList.add('active');
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
 
-// Initialize everything when DOM loads
-document.addEventListener('DOMContentLoaded', function() {
-    createFloatingShapes();
-    initHeroSlider();
-    initThemeToggle();
-    initServiceDetailSliders();
-    
-    // Mobile bottom nav active link
-    const currentPath = window.location.hash || '#home';
-    document.querySelector(`.mobile-bottom-nav a[href="${currentPath}"]`).classList.add('active');
-});
-</script>
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.querySelectorAll('.gallery-slide');
+            const dots = document.querySelectorAll('.gallery-dot');
+            
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex - 1].style.display = 'block';
+            dots[slideIndex - 1].classList.add('active');
+        }
+
+        // Service Detail Functions
+        function showServiceDetail(serviceId) {
+            document.getElementById(`${serviceId}-detail`).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideServiceDetail() {
+            const serviceDetails = document.querySelectorAll('.service-detail');
+            serviceDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cookie Functions
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookiePopup').style.display = 'none';
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookiePopup').style.display = 'none';
+        }
+
+        function checkCookies() {
+            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+            if (cookiesAccepted) {
+                document.getElementById('cookiePopup').style.display = 'none';
+            }
+        }
+
+        // Initialize functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingShapes();
+            initHeroSlider();
+            initThemeToggle();
+            checkCookies();
+        });
+    </script>
 </body>
 </html>
