@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egold Technology • Solar Energy, Security & Engineering Solutions</title>
+  <meta name="description" content="Egold Technology — Nigeria's trusted partner for solar panel installation, renewable energy systems, CCTV surveillance, access control, automation, and professional engineering services since 2002.">
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
+  <link rel="icon" type="image/png" href="images/egoldtech.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- =============================================
+     GLASS HEADER (responsive, no get-in-touch btn)
+     ============================================= -->
+<header class="glass-header" id="siteHeader">
+  <a class="logo-area" href="#home">
+    <img src="images/egoldtech.png" alt="Egold Technology">
+    <span class="logo-text">Egold</span>
+  </a>
+
+  <nav class="nav-links" id="desktopNav">
+    <a href="#home" class="active">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+    <a href="#feedback">Feedback</a>
+  </div>
+</header>
+
+<!-- =============================================
+     FLOATING ACTION BUTTONS (Dark/Light + Scroll Top)
+     ============================================= -->
+<div class="fab-container">
+  <div class="fab-options" id="fabOptions">
+    <button class="fab-btn" id="fabThemeBtn" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="fabThemeIcon"></i>
+      <span class="fab-tooltip">Toggle Theme</span>
+    </button>
+    <button class="fab-btn" id="fabScrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+      <span class="fab-tooltip">Scroll to Top</span>
+    </button>
+  </div>
+  <button class="fab-toggle" id="fabToggle" aria-label="Options">
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
+
+<main class="page-wrapper">
+
+  <!-- =============================================
+       HERO — 3 VIDEOS THAT PLAY SEQUENTIALLY
+       ============================================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-video-wrap">
+      <video muted playsinline preload="auto" class="active-video">
+        <source src="images/solar-hero.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline preload="auto">
+        <source src="images/automation-hero.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline preload="auto">
+        <source src="images/cctv-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Video indicator dots -->
+    <div class="hero-video-indicators">
+      <button class="video-dot active" aria-label="Solar video"><div class="dot-progress"></div></button>
+      <button class="video-dot" aria-label="Automation video"><div class="dot-progress"></div></button>
+      <button class="video-dot" aria-label="CCTV video"><div class="dot-progress"></div></button>
+    </div>
+
+    <div class="hero-content-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-bolt"></i> Trusted since 2002
+        </div>
+        <h1 class="hero-title">
+          Building the Future<br>
+          with <span class="accent-solar">Solar Energy</span>
+        </h1>
+        <p class="hero-description">
+          Harness the power of the sun with our cutting-edge solar solutions for homes and businesses. Advanced security systems & innovative engineering — all under one roof.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#services" class="btn-primary btn-primary-solar" id="ctaExplore">
+            <i class="fas fa-solar-panel"></i> Explore Solutions
+          </a>
+          <a href="#contact" class="btn-secondary" id="ctaQuote">
+            <i class="fas fa-phone"></i> Get a Free Quote
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">128+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cards">
+        <div class="hero-card">
+          <div class="hero-card-icon solar"><i class="fas fa-solar-panel"></i></div>
+          <div>
+            <h4>Renewable Energy</h4>
+            <p>Turn your roof into a power source with top-notch solar installation</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon security"><i class="fas fa-shield-halved"></i></div>
+          <div>
+            <h4>Security Systems</h4>
+            <p>State-of-the-art CCTV surveillance & access control</p>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon engineering"><i class="fas fa-gear"></i></div>
+          <div>
+            <h4>Engineering Solutions</h4>
+            <p>Quality construction & automation with precision</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       MARQUEE
+       ============================================= -->
+  <section class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="dot-sep"></span>Solar Installation</div>
+      <div class="marquee-item"><span class="dot-sep"></span>CCTV & Surveillance</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Access Control</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Roadblocker Systems</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Home Automation</div>
+      <div class="marquee-item"><span class="dot-sep"></span>ICT Solutions</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Professional Training</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Repair & Maintenance</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Solar Installation</div>
+      <div class="marquee-item"><span class="dot-sep"></span>CCTV & Surveillance</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Access Control</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Roadblocker Systems</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Home Automation</div>
+      <div class="marquee-item"><span class="dot-sep"></span>ICT Solutions</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Professional Training</div>
+      <div class="marquee-item"><span class="dot-sep"></span>Repair & Maintenance</div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       STATS ROW
+       ============================================= -->
+  <section class="stats-row">
+    <div class="stats-card reveal-up">
+      <div class="big-number" id="statsProjects">0+</div>
+      <div class="stats-desc">Projects Delivered</div>
+    </div>
+    <div class="stats-card reveal-up" style="transition-delay: 0.1s;">
+      <div class="big-number" id="statsSolar">0+</div>
+      <div class="stats-desc">Solar Installations</div>
+    </div>
+    <div class="stats-card reveal-up" style="transition-delay: 0.2s;">
+      <div class="big-number" id="statsClients">0+</div>
+      <div class="stats-desc">Happy Clients</div>
+    </div>
+    <div class="stats-card reveal-up" style="transition-delay: 0.3s;">
+      <div class="big-number" id="statsYears">0+</div>
+      <div class="stats-desc">Years Experience</div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SERVICES — 3D STACKED CARD CAROUSEL
+       ============================================= -->
+  <section class="dark-services" id="services" style="scroll-margin-top: 100px;">
+    <div class="services-header">
+      <div class="section-label" style="color: #34d399; border-color: rgba(52,211,153,0.15); background: rgba(52,211,153,0.06);">
+        <i class="fas fa-th-large"></i> Our Services
+      </div>
+      <h2 class="section-title" style="color: #eaf1fb;">Comprehensive Solutions</h2>
+      <p class="section-subtitle">End-to-end technological and engineering solutions — from solar energy to security and beyond.</p>
+    </div>
+
+    <div class="services-carousel">
+      <!-- Card 1: Renewable Energy -->
+      <div class="service-card">
+        <div class="card-icon solar"><i class="fas fa-solar-panel"></i></div>
+        <div class="card-rating"><span>★</span> 5.0</div>
+        <h3>Renewable Energy</h3>
+        <p>Expert solar installation services — residential, commercial, and battery storage systems for a sustainable future.</p>
+        <div class="service-tags">
+          <span class="service-tag">Solar Panels</span>
+          <span class="service-tag">Battery Storage</span>
+          <span class="service-tag">Water Heating</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Surveillance -->
+      <div class="service-card">
+        <div class="card-icon blue"><i class="fas fa-video"></i></div>
+        <div class="card-rating"><span>★</span> 4.9</div>
+        <h3>Surveillance Systems</h3>
+        <p>Professional CCTV installation with HD, IP, night vision, and thermal imaging. Cloud storage & remote viewing.</p>
+        <div class="service-tags">
+          <span class="service-tag">CCTV</span>
+          <span class="service-tag">IP Cameras</span>
+          <span class="service-tag">Remote Access</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Roadblocker -->
+      <div class="service-card">
+        <div class="card-icon green"><i class="mdi mdi-boom-gate-up"></i></div>
+        <div class="card-rating"><span>★</span> 4.8</div>
+        <h3>Roadblocker Systems</h3>
+        <p>High-security roadblockers for access control points, denial barriers, and vehicle search traps.</p>
+        <div class="service-tags">
+          <span class="service-tag">Crash Rated</span>
+          <span class="service-tag">Hydraulic</span>
+          <span class="service-tag">ALPR</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Training -->
+      <div class="service-card">
+        <div class="card-icon green"><i class="fas fa-graduation-cap"></i></div>
+        <div class="card-rating"><span>★</span> 5.0</div>
+        <h3>Professional Training</h3>
+        <p>Expert training in solar installation, CCTV operation, access control, and renewable energy technology.</p>
+        <div class="service-tags">
+          <span class="service-tag">Solar Training</span>
+          <span class="service-tag">Security</span>
+          <span class="service-tag">Corporate</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Installations -->
+      <div class="service-card">
+        <div class="card-icon blue"><i class="fas fa-tools"></i></div>
+        <div class="card-rating"><span>★</span> 4.9</div>
+        <h3>Installations</h3>
+        <p>Turnkey solar energy systems, security deployments, cabling infrastructure, and home automation setups.</p>
+        <div class="service-tags">
+          <span class="service-tag">Turnkey</span>
+          <span class="service-tag">Automation</span>
+          <span class="service-tag">Cabling</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Repair -->
+      <div class="service-card">
+        <div class="card-icon green"><i class="fas fa-wrench"></i></div>
+        <div class="card-rating"><span>★</span> 4.8</div>
+        <h3>Repair & Maintenance</h3>
+        <p>Solar troubleshooting, CCTV servicing, preventive maintenance programs, and emergency repairs.</p>
+        <div class="service-tags">
+          <span class="service-tag">Solar Repair</span>
+          <span class="service-tag">Maintenance</span>
+          <span class="service-tag">Emergency</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-nav-btn" id="svcPrev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+      <button class="carousel-nav-btn" id="svcNext" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SOLAR HIGHLIGHT
+       ============================================= -->
+  <section class="solar-section" id="solar" style="scroll-margin-top: 100px;">
+    <div class="section-label" style="background: rgba(245,158,11,0.08); color: #f59e0b; border-color: rgba(245,158,11,0.15);">
+      <i class="fas fa-sun"></i> Our Specialty
+    </div>
+    <h2 class="section-title">Renewable Energy <span class="highlight-solar">Solutions</span></h2>
+    <p class="section-subtitle">Cutting-edge solar energy systems that help you reduce your carbon footprint while saving on energy costs.</p>
+
+    <div class="solar-grid">
+      <div class="solar-features">
+        <div class="solar-feature">
+          <div class="solar-feature-icon orange"><i class="fas fa-home"></i></div>
+          <div class="feature-text">
+            <h4>Residential Solar Panels</h4>
+            <span>Custom home installations with optimal positioning</span>
+          </div>
+        </div>
+        <div class="solar-feature">
+          <div class="solar-feature-icon orange"><i class="fas fa-building"></i></div>
+          <div class="feature-text">
+            <h4>Commercial Solar Systems</h4>
+            <span>Large-scale solar for offices and factories</span>
+          </div>
+        </div>
+        <div class="solar-feature">
+          <div class="solar-feature-icon orange"><i class="fas fa-faucet-drip"></i></div>
+          <div class="feature-text">
+            <h4>Solar Water Heating</h4>
+            <span>Efficient hot water powered by the sun</span>
+          </div>
+        </div>
+        <div class="solar-feature">
+          <div class="solar-feature-icon orange"><i class="fas fa-battery-full"></i></div>
+          <div class="feature-text">
+            <h4>Battery Storage Systems</h4>
+            <span>Store solar energy for use day and night</span>
+          </div>
+        </div>
+        <div class="solar-feature">
+          <div class="solar-feature-icon green"><i class="fas fa-screwdriver-wrench"></i></div>
+          <div class="feature-text">
+            <h4>Maintenance & Repair</h4>
+            <span>Industry-leading warranties and ongoing support</span>
+          </div>
+        </div>
+      </div>
+      <div class="solar-image-area">
+        <img src="images/hero-security.png" alt="Egold Technology Solar & Engineering Solutions">
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ABOUT
+       ============================================= -->
+  <section class="about-section" id="about" style="scroll-margin-top: 100px;">
+    <div class="section-label"><i class="fas fa-info-circle"></i> About Us</div>
+    <h2 class="section-title">Engineering <span class="highlight">Excellence</span> Since 2002</h2>
+
+    <div class="about-grid">
+      <div class="about-content">
+        <p>Egold Technology was formed in 2002 as a subsidiary of Oria Usifo Consult and incorporated in 2018 by renowned Electrical and IT professionals in Nigeria. Our principal is an Electrical and Computer Engineer, System Integrator and Project Manager with extensive knowledge in Engineering Practice, Renewable Energy Systems, Security and ICT.</p>
+        <p>Internationally trained in Surveillance Security Systems and Access Control (ADI — South Africa), we bring world-class expertise to every project.</p>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-solar-panel"></i></div>
+            <div class="feature-text">
+              <h4>Renewable Energy Experts</h4>
+              <span>Design & install cutting-edge solar systems</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="feature-text">
+              <h4>ADI Certified (South Africa)</h4>
+              <span>International security training & certification</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-gear"></i></div>
+            <div class="feature-text">
+              <h4>Turnkey Engineering</h4>
+              <span>End-to-end supply, design & installation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-panel">
+        <h3>Our Vision & Objective</h3>
+        <p>We envision a future where technology and engineering solutions create safer, more efficient, and sustainable environments for businesses and communities.</p>
+        <p>Our primary objective is to provide Engineering services, ICT and security services in the efficient application of Engineering Technology.</p>
+        <ul class="vision-list">
+          <li><i class="fas fa-check-circle"></i> Supply, design & installation of Renewable Energy Systems</li>
+          <li><i class="fas fa-check-circle"></i> ICT infrastructure & networking solutions</li>
+          <li><i class="fas fa-check-circle"></i> Security systems, access control & automation</li>
+          <li><i class="fas fa-check-circle"></i> Engineering services for all sectors</li>
+          <li><i class="fas fa-check-circle"></i> Professional training & capacity building</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       GLOBE CTA
+       ============================================= -->
+  <section class="globe-cta">
+    <img src="images/globe.png" alt="Global engineering coverage" class="globe-image">
+    <h2 class="section-title">Power Your Future<br>with <span class="highlight">Egold Technology</span></h2>
+    <p class="section-subtitle">Whether you're powering a home with solar, securing an enterprise, or building infrastructure — we deliver world-class engineering solutions with precision and care.</p>
+    <a href="#contact" class="btn-primary" id="ctaGlobe">Get Started Today <i class="fas fa-arrow-right"></i></a>
+  </section>
+
+  <!-- =============================================
+       WHO WE SERVE
+       ============================================= -->
+  <section class="serve-section">
+    <div class="section-label"><i class="fas fa-users"></i> Who We Serve</div>
+    <h2 class="section-title">Built for <span class="highlight">Every Sector</span></h2>
+    <p class="section-subtitle" style="margin: 0 auto;">From residential homes to large enterprise and government facilities.</p>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <div class="serve-card-icon"><i class="fas fa-home"></i></div>
+        <h3>Residential</h3>
+        <p>Solar, smart home & security</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-card-icon"><i class="fas fa-building"></i></div>
+        <h3>Commercial</h3>
+        <p>Office & retail energy solutions</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-card-icon"><i class="fas fa-industry"></i></div>
+        <h3>Industrial</h3>
+        <p>Factory & plant systems</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-card-icon"><i class="fas fa-landmark"></i></div>
+        <h3>Government</h3>
+        <p>Public sector infrastructure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TESTIMONIALS — 3D STACKED CARDS
+       ============================================= -->
+  <section class="testimonials-section" id="testimonials" style="scroll-margin-top: 100px;">
+    <div class="services-header">
+      <div class="section-label"><i class="fas fa-quote-left"></i> Testimonials</div>
+      <h2 class="section-title">What Our <span class="highlight">Clients Say</span></h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Hear from our satisfied customers about their experiences with Egold Technology.</p>
+    </div>
+
+    <div class="testimonial-carousel">
+      <!-- Sarah -->
+      <div class="testimonial-card">
+        <div class="author-avatar green">S</div>
+        <div class="author-name">Sarah O.</div>
+        <div class="rating-inline"><span class="stars">★★★★★</span><span class="score">5.0</span></div>
+        <div class="vetted-label">Verified Client</div>
+        <div class="author-role">Residential Client</div>
+        <p class="quote-text">"I can't thank Egold Technology enough for their incredible service! My AC broke down in the middle of a heatwave, and within an hour, a technician was at my door. Very professional and courteous. Strongly recommended!"</p>
+      </div>
+      <!-- David -->
+      <div class="testimonial-card">
+        <div class="author-avatar solar">D</div>
+        <div class="author-name">David Ayomike</div>
+        <div class="rating-inline"><span class="stars">★★★★★</span><span class="score">5.0</span></div>
+        <div class="vetted-label">Verified Client</div>
+        <div class="author-role">Business Owner</div>
+        <p class="quote-text">"We ordered CCTV and solar installation, and the process was superb. The team was very professional, arriving punctually. Now we have 24/7 monitoring and always a power supply. We couldn't be happier!"</p>
+      </div>
+      <!-- Tamuno -->
+      <div class="testimonial-card">
+        <div class="author-avatar blue">T</div>
+        <div class="author-name">Tamuno B.</div>
+        <div class="rating-inline"><span class="stars">★★★★★</span><span class="score">4.9</span></div>
+        <div class="vetted-label">Verified Client</div>
+        <div class="author-role">Project Manager</div>
+        <p class="quote-text">"We needed a uniform automation system for our construction project, and the team did their job perfectly. Planning through execution was all smooth. The system works faultlessly. First-rate service!"</p>
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-nav-btn" id="testPrev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+      <button class="carousel-nav-btn" id="testNext" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </section>
+
+  <!-- =============================================
+       LIVE MAP SECTION
+       ============================================= -->
+  <section class="map-section" id="location" style="scroll-margin-top: 100px;">
+    <div class="section-label"><i class="fas fa-map-location-dot"></i> Our Location</div>
+    <h2 class="section-title">Find Us on the <span class="highlight">Map</span></h2>
+    <p class="section-subtitle">Visit our office at 106 Samphino Road, Yenagoa, Bayelsa State, Nigeria.</p>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.0!2d6.2645!3d4.9267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x106a0291af0e0001%3A0x0!2s106+Samphino+Road%2C+Yenagoa%2C+Bayelsa!5e0!3m2!1sen!2sng!4v1714432800000!5m2!1sen!2sng"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Egold Technology Office Location">
+      </iframe>
+    </div>
+
+    <div class="map-info-row">
+      <div class="map-info-card">
+        <div class="map-info-icon"><i class="fas fa-location-dot"></i></div>
+        <div>
+          <h4>Address</h4>
+          <p>106 Samphino Road, Yenagoa, Bayelsa</p>
+        </div>
+      </div>
+      <div class="map-info-card">
+        <div class="map-info-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <h4>Phone</h4>
+          <p><a href="tel:+2347030842893">+234 703 084 2893</a></p>
+        </div>
+      </div>
+      <div class="map-info-card">
+        <div class="map-info-icon"><i class="fas fa-directions"></i></div>
+        <div>
+          <h4>Directions</h4>
+          <p><a href="https://www.google.com/maps/dir/?api=1&destination=106+Samphino+Road+Yenagoa+Bayelsa" target="_blank" rel="noopener">Get Directions →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT
+       ============================================= -->
+  <section class="contact-section" id="contact" style="scroll-margin-top: 100px;">
+    <div class="section-label"><i class="fas fa-envelope"></i> Contact Us</div>
+    <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
+    <p class="section-subtitle">Ready to power your space with solar or secure your property? Let's build something great together.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info-cards">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-text">
+            <h4>Email Us</h4>
+            <p><a href="mailto:egoldtechnologycopany@gmail.com">egoldtechnologycopany@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-text">
+            <h4>Call Us</h4>
+            <p><a href="tel:+2347030842893">+234 703 084 2893</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-text">
+            <h4>Visit Us</h4>
+            <p>106 Samphino Road, Yenagoa, Bayelsa</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-text">
+            <h4>Working Hours</h4>
+            <p>Mon – Sat: 8AM – 6PM</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <input type="text" class="form-input" id="formName" placeholder="Your Name" required>
+          <input type="email" class="form-input" id="formEmail" placeholder="Your Email" required>
+        </div>
+        <input type="text" class="form-input" id="formSubject" placeholder="Subject">
+        <textarea class="form-input" id="formMessage" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary" id="formSubmit" style="width: 100%; justify-content: center;">
+          Send Message <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FEEDBACK
+       ============================================= -->
+  <section class="contact-section" id="feedback" style="scroll-margin-top: 100px;">
+    <div class="section-label"><i class="fas fa-comment-dots"></i> Feedback</div>
+    <h2 class="section-title">Send Us <span class="highlight">Feedback</span></h2>
+    <p class="section-subtitle">We value your opinion. Let us know how we can serve you better.</p>
+    <form class="contact-form" id="feedbackForm" style="max-width: 640px; margin-top: 32px;">
+      <input type="text" class="form-input" placeholder="Your Name" required>
+      <input type="email" class="form-input" placeholder="Your Email" required>
+      <textarea class="form-input" placeholder="Your Feedback" required></textarea>
+      <button type="submit" class="btn-primary" id="feedbackSubmit" style="width: 100%; justify-content: center;">
+        Submit Feedback <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">Egold Technology</span>
+        <p>Your trusted partner for innovative engineering and technology solutions. Solar energy, security systems, ICT infrastructure, and professional training — since 2002.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Solar Installation</a>
+        <a href="#services">CCTV & Surveillance</a>
+        <a href="#services">Roadblocker Systems</a>
+        <a href="#services">Professional Training</a>
+        <a href="#services">Repair & Maintenance</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#contact">Contact Us</a>
+        <a href="#feedback">Feedback</a>
+        <a href="tel:+2347030842893">+234 703 084 2893</a>
+        <a href="mailto:egoldtechnologycopany@gmail.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <span>© 2026 Egold Technology. All Rights Reserved.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
+</body>
+</html>
