@@ -334,6 +334,70 @@
   if (testCards.length > 0) updateTestCards();
 
   /* ==============================================
+     GALLERY CAROUSEL — 3D stacked
+     ============================================== */
+  const galCards = document.querySelectorAll(".gallery-card");
+  let galIndex = 0;
+
+  function updateGalCards() {
+    const total = galCards.length;
+    galCards.forEach((card, i) => {
+      card.classList.remove("card-left", "card-center", "card-right", "card-hidden");
+      const diff = i - galIndex;
+      if (diff === 0) card.classList.add("card-center");
+      else if (diff === -1 || (galIndex === 0 && i === total - 1)) card.classList.add("card-left");
+      else if (diff === 1 || (galIndex === total - 1 && i === 0)) card.classList.add("card-right");
+      else card.classList.add("card-hidden");
+    });
+  }
+
+  const galPrev = document.getElementById("galPrev");
+  const galNext = document.getElementById("galNext");
+
+  if (galPrev) {
+    galPrev.addEventListener("click", () => {
+      galIndex = (galIndex - 1 + galCards.length) % galCards.length;
+      updateGalCards();
+    });
+  }
+  if (galNext) {
+    galNext.addEventListener("click", () => {
+      galIndex = (galIndex + 1) % galCards.length;
+      updateGalCards();
+    });
+  }
+
+  let galAutoInterval = setInterval(() => {
+    galIndex = (galIndex + 1) % galCards.length;
+    updateGalCards();
+  }, 7000);
+
+  const galCarousel = document.querySelector(".gallery-carousel");
+  if (galCarousel) {
+    galCarousel.addEventListener("mouseenter", () => clearInterval(galAutoInterval));
+    galCarousel.addEventListener("mouseleave", () => {
+      clearInterval(galAutoInterval);
+      galAutoInterval = setInterval(() => {
+        galIndex = (galIndex + 1) % galCards.length;
+        updateGalCards();
+      }, 7000);
+    });
+  }
+
+  if (galCards.length > 0) updateGalCards();
+  
+  /* ==============================================
+     TEAM ACCORDION LOGIC
+     ============================================== */
+  const teamCards = document.querySelectorAll(".team-card");
+  teamCards.forEach(card => {
+    card.addEventListener("click", () => {
+      teamCards.forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+    });
+  });
+
+  /* ==============================================
      ANIMATED COUNTERS
      ============================================== */
   function animateCounter(el, target, suffix, duration) {
@@ -400,7 +464,7 @@
       e.preventDefault();
       const original = btn.innerHTML;
       btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-      btn.style.background = "linear-gradient(135deg, #16a34a, #15803d)";
+      btn.style.background = "linear-gradient(135deg, #1565c0, #0d47a1)";
       setTimeout(() => {
         btn.innerHTML = original;
         btn.style.background = "";
